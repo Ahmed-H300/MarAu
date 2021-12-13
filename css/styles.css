@@ -1,6 +1,9 @@
 body {
-  background-image: linear-gradient(to left, #000000, #a0a0a0);
+  background-image:linear-gradient(220deg, #000000d0, #a0a0a021),url("../img/bgreg.jpg") ;
   color: #fff;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 .start-form {
   display: none;
@@ -22,7 +25,7 @@ body {
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
-    background-color: #222222;
+    background-color: #181818;
   }
   .start-form {
     padding-top: 100px;
@@ -46,8 +49,8 @@ form button {
 }
 form button:hover {
   border: 2px solid black;
-  color: rgb(0, 0, 0);
-  background: rgb(84, 14, 159);
+  color: white;
+  background: #d10013;
   -webkit-transition: 0.3s;
   -moz-transition: 0.3s;
   -o-transition: 0.3s;
@@ -99,4 +102,48 @@ form button:hover {
 
 .form-select::-ms-input-placeholder { /* Microsoft Edge */
   color: white;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* width */
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: rgb(57, 57, 57);
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: rgb(32, 32, 32);
 }
