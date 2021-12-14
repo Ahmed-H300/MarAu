@@ -11,7 +11,7 @@ services:
         volumes:
             - .:/var/www/html/
         ports:
-            - 8000:80
+            - '5000:80'
     db:
         container_name: db
         image: mysql
@@ -26,7 +26,7 @@ services:
     phpmyadmin:
         image: phpmyadmin/phpmyadmin
         ports:
-            - '8080:80'
+            - '5050:80'
         restart: always
         environment:
             PMA_HOST: db
