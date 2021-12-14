@@ -5,7 +5,7 @@ services:
         restart: always
         build:
             context: .
-            dockerfile: Dockerfile
+            dockerfile: DockerFile
         depends_on:
             - db
         volumes:
@@ -17,10 +17,10 @@ services:
         image: mysql
         restart: always
         environment:
-            MYSQL_ROOT_PASSWORD: MYSQL_ROOT_PASSWORD
-            MYSQL_DATABASE: MYSQL_DATABASE
-            MYSQL_USER: MYSQL_USER
-            MYSQL_PASSWORD: MYSQL_PASSWORD
+            MYSQL_ROOT_PASSWORD: m33gLfX4b4vpn3wa
+            MYSQL_DATABASE: Test
+            MYSQL_USER: User
+            MYSQL_PASSWORD: SKKyWwvC2FjUYp8A
         ports:
             - "9906:3306"
     phpmyadmin:
