@@ -10,36 +10,52 @@
 </head>
 
 <body>
-    <div id="navbar">
+    <!-- <div id="navbar">
         <a class="navbar-brand" href="https://marau.demosfortest.com/"><img src='../img//Home/super-logo.png' width="50" height="50"></a>
         <a href="../Views/login.html">Sign in</a>
         <a href="#Profile">MY Profile</a>
         <a href="#contact">Contact</a>
-    </div>
+    </div> -->
+    <nav id="navbar" class="navbar navbar-expand-lg navbar-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="https://marau.demosfortest.com/"><img src='../img//Home/super-logo.png' width="50" height="50"></a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="../Views/Home.html">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="../Views/login.html">Sign in</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">MY Profile</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Contact</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
     <!-- welcome text -->
     <section id="sec-1">
         <div class="container">
-          <div style="margin: 300px; font-size: 80px;">Ready for the True Gaming ?</div>
+          <div>Ready for the True Gaming ?</div>
           <a href="#sec-2">
             <div class="scroll-down"></div>
           </a>
         </div>
       </section>
-      <section id="sec-2">
-        <div class="container" style="text-align: left;">
-            <div style="font-size: 80px;">
-                Our Top Game
-            </div>
-            <div>
-                <button onClick="window.location.href='../Views/game.html';">
-                    View Game
-                </button>
-            </div>
-            
-
-
-        </div>
-      </section>
+      <!-- Top Gaem -->
+      <a href="../Views/game.html">
+        <section id="sec-2">
+            <!-- <img src="../img/Home/game.jpg" width="200" height=""> -->
+        </section>
+      </a>
+      
     <!-- Other games -->
     <h2 class="games-title" style="color: rgb(148, 148, 148); margin: 80px auto;">
         Games
@@ -109,6 +125,7 @@
             </button>
         </div>
     </section>
+<script src='../js/bootstrap.min.js'></script>
 <script>
 // When the user scrolls down 20px from the top of the document, slide down the navbar
 var prevScrollpos = window.pageYOffset;
@@ -117,7 +134,7 @@ var currentScrollPos = window.pageYOffset;
   if (prevScrollpos > currentScrollPos) {
     document.getElementById("navbar").style.top = "0";
   } else {
-    document.getElementById("navbar").style.top = "-85px";
+    document.getElementById("navbar").style.top = "-100px";
   }
   prevScrollpos = currentScrollPos;
 }
