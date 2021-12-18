@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+    
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../css/Home_style.css">
+    <title>MarAu </title>
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+</head>
+
+<body>
+    <div id="navbar">
+        <a class="navbar-brand" href="https://marau.demosfortest.com/"><img src='../img//Home/super-logo.png' width="50" height="50"></a>
+        <a href="../Views/login.html">Sign in</a>
+        <a href="#Profile">MY Profile</a>
+        <a href="#contact">Contact</a>
+    </div>
+    <!-- welcome text -->
+    <section id="sec-1">
+        <div class="container">
+          <div style="margin: 300px; font-size: 80px;">Ready for the True Gaming ?</div>
+          <a href="#sec-2">
+            <div class="scroll-down"></div>
+          </a>
+        </div>
+      </section>
+      <section id="sec-2">
+        <div class="container" style="text-align: left;">
+            <div style="font-size: 80px;">
+                Our Top Game
+            </div>
+            <div>
+                <button onClick="window.location.href='../Views/game.html';">
+                    View Game
+                </button>
+            </div>
+            
+
+
+        </div>
+      </section>
+    <!-- Other games -->
+    <h2 class="games-title" style="color: rgb(148, 148, 148); margin: 80px auto;">
+        Games
+    </h2>
+    <section class="Games">
+        <div class="Games-item">
+            <div style="background-image: url(../img/Home/game.jpg);" class="Games-item-image"></div>
+            <p class="title">
+                Mario 1
+            </p>
+            <button onClick="window.location.href='../Views/game.html';">
+                View Game
+            </button>
+        </div>
+        <div class="Games-item">
+            <div style="background-image: url(../img/Home/game.jpg);" class="Games-item-image"></div>
+            <p class="title">
+                Mario 2
+            </p>
+            <button onClick="window.location.href='../Views/game.html';">
+                View Game
+            </button>
+        </div>
+        <div class="Games-item">
+            <div style="background-image: url(../img/Home/game.jpg);" class="Games-item-image"></div>
+            <p class="title">
+                Mario 3
+            </p>
+            <button onClick="window.location.href='../Views/game.html';">
+                View Game
+            </button>
+        </div>
+        <div class="Games-item">
+            <div style="background-image: url(../img/Home/game.jpg);" class="Games-item-image"></div>
+            <p class="title">
+                Mario 4
+            </p>
+            <button onClick="window.location.href='../Views/game.html';">
+                View Game
+            </button>
+        </div>
+        <div class="Games-item">
+            <div style="background-image: url(../img/Home/game.jpg);" class="Games-item-image"></div>
+            <p class="title">
+                Mario 5
+            </p>
+            <button onClick="window.location.href='../Views/game.html';">
+                View Game
+            </button>
+        </div>
+        <div class="Games-item">
+            <div style="background-image: url(../img/Home/game.jpg);" class="Games-item-image"></div>
+            <p class="title">
+                Mario 6
+            </p>
+            <button onClick="window.location.href='../Views/game.html';">
+                View Game
+            </button>
+        </div>
+        <div class="Games-item">
+            <div style="background-image: url(../img/Home/game.jpg);" class="Games-item-image"></div>
+            <p class="title">
+                Mario 7
+            </p>
+            <button onClick="window.location.href='../Views/game.html';">
+                View Game
+            </button>
+        </div>
+    </section>
+<script>
+// When the user scrolls down 20px from the top of the document, slide down the navbar
+var prevScrollpos = window.pageYOffset;
+window.onscroll = function() {
+var currentScrollPos = window.pageYOffset;
+  if (prevScrollpos > currentScrollPos) {
+    document.getElementById("navbar").style.top = "0";
+  } else {
+    document.getElementById("navbar").style.top = "-85px";
+  }
+  prevScrollpos = currentScrollPos;
+}
+</script>
+
+</body>
+</html>

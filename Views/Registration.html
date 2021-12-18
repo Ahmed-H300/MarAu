@@ -6,16 +6,16 @@
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
   <title>MarAu </title>
-  <link href="./css/bootstrap.min.css" rel="stylesheet">
+  <link href="../css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-  <link href="./css/styles.css" rel="stylesheet">
+  <link href="../css/styles.css" rel="stylesheet">
 </head>
 
 <body>
   <!-- Nav Bar Section -->
   <nav class="navbar navbar-expand-lg navbar-light ">
     <div class="offset-sm-1 container-fluid">
-      <a class="navbar-brand" href="https://marau.demosfortest.com/"><img src='./img/logo.png' width="70" height="70"></a>
+      <a class="navbar-brand" href="https://marau.demosfortest.com/"><img src='../img/logo.png' width="70" height="70"></a>
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
           <a class="nav-link active nav-name text-white" aria-current="page" href="#1">MarAu | Register</a>
@@ -30,11 +30,13 @@
     <!-- First Form Page  -->
     <div class="row align-items-center container-form " id="formBox">
       <div class="col-sm-6 d-none d-sm-block">
-        <img src='./img/register.png' class='img-form'>
+        <img src='../img/register.png' class='img-form'>
       </div>
       <div class="col-sm-5">
         <div class="form-container">
-
+          <div class="sign">
+            <span class="fast-flicker">re</span>gi<span class="flicker">s</span>t<span class="fast-flicker">e</span>r
+        </div>
           <form id="formBox">
             <div id="1">
               <div class="mb-3">
@@ -52,10 +54,9 @@
 
               <div class="mb-3">
                 <select class="form-select" aria-label="gender" id="gender">
-                  <option selected value='4'>Gender</option>
-                  <option value="1">male</option>
-                  <option value="2">female</option>
-                  <option value="3">Attack Helicopter</option>
+                  <option selected value='3' disabled>Gender</option>
+                  <option value="1">Male</option>
+                  <option value="2">Female</option>
                 </select>
                 <p class="hide text-danger" id='genderError'>This field is required</p>
               </div>
@@ -64,7 +65,8 @@
                 <input type="date" class="form-control " id="birthdate" placeholder="Email">
                 <p class="hide text-danger" id='birthdateError'></p>
               </div>
-              <div class="d-flex justify-content-end">
+              <div class="d-flex justify-content-between">
+                <a href="login.html" class=" align-self-end">Already have an acount?</a>
                 <button type="button" class="  align-self-end next">Next</button>
               </div>
             </div>
@@ -86,6 +88,14 @@
               <div class="mb-3">
                 <input type="password" class="form-control" id="confirmPassword" placeholder="Confirm Password"></input>
                 <p class="hide text-danger" id='confirmPasswordError'>Password Doesn't Match</p>
+              </div>
+              <div class="mb-3">
+                <select class="form-select" aria-label="type" id="type">
+                  <option selected value='3' disabled>Register As</option>
+                  <option value="1">Buyer</option>
+                  <option value="2">Seller</option>
+                </select>
+                <p class="hide text-danger" id='typeError'>This field is required</p>
               </div>
               <div class="d-flex justify-content-between">
                 <button type="button" class=" align-self-end back">Back</button>
@@ -130,7 +140,8 @@
   passwordError=document.getElementById("passwordError")
   confirmPassword=document.getElementById("confirmPassword")
   confirmPasswordError=document.getElementById("confirmPasswordError")
-
+  type = document.getElementById("type")
+  typeError = document.getElementById("typeError")
   //event listners for buttons
   for (let i = 0; i < next_btns.length; i++)
     next_btns[i].addEventListener("click", goNext);
@@ -138,6 +149,7 @@
     back_btns[i].addEventListener("click", goBack);
   form.addEventListener("submit", (e) => {
     if (!validate()) e.preventDefault();
+    else console.log("click");
   });
   page = 1
   function goNext() {
@@ -177,7 +189,7 @@
         flag = false;
         mNameError.classList.remove("hide");
       } else mNameError.classList.add("hide");
-      if (gender.value == 4) {
+      if (gender.value == 3) {
         flag = false;
         genderError.classList.remove("hide");
       } else genderError.classList.add("hide");
@@ -222,6 +234,10 @@
         flag = false;
         confirmPasswordError.classList.remove("hide");
       } else confirmPasswordError.classList.add("hide");
+      if (type.value == 3) {
+        flag = false;
+        typeError.classList.remove("hide");
+      } else typeError.classList.add("hide");
     }
     return flag;
   }
