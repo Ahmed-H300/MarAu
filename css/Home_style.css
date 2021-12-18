@@ -38,6 +38,19 @@ body {
     color: black;
   }
   /**/
+  #font-buyer
+  { 
+    margin: 80px auto;
+     background: linear-gradient(to left,
+    violet,
+    indigo,
+    orange,
+    red);
+-webkit-background-clip: text;
+color: transparent;
+  }
+  /**/
+  /**/
   .container
   {  
     margin: 300px; font-size: 80px;
