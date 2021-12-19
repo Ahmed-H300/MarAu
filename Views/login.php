@@ -71,7 +71,7 @@
     </div>
 
 </body>
-<script src='./js/bootstrap.min.js'></script>
+<script src='../js/bootstrap.min.js'></script>
 <script>
     //vars
     form = document.getElementById("formBox");
