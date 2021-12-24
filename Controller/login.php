@@ -7,10 +7,10 @@ if (!empty($_POST)) {
     $password = $_POST['password'];
     $hashed_password = password_hash($password, PASSWORD_DEFAULT);
     require "../connection.php";
-    $selectQuery = $connection->prepare("SELECT a.AccountId,Username,fName,mName,lName,PasswordHash,EmailAddress,Gender,BirthDate,Status,Country,ContactEmail,Strikes,Balance,BuyerId as ID FROM accounts as a,buyers as b WHERE Username=? AND a.AccountId=b.AccountId UNION SELECT a.AccountId,Username,fName,mName,lName,PasswordHash,EmailAddress,Gender,BirthDate,Status,Country,ContactEmail,Strikes,Balance,SellerId as ID FROM accounts as a,sellers as s WHERE a.AccountId=s.AccountId;"); //
+    $selectQuery = $connection->prepare("SELECT a.AccountId,Username,fName,mName,lName,PasswordHash,EmailAddress,Gender,BirthDate,Status,Country,ContactEmail,Strikes,Balance,BuyerId as ID FROM accounts as a,buyers as b WHERE Username=? AND a.AccountId=b.AccountId UNION SELECT a.AccountId,Username,fName,mName,lName,PasswordHash,EmailAddress,Gender,BirthDate,Status,Country,ContactEmail,Strikes,Balance,SellerId as ID FROM accounts as a,sellers as s WHERE Username=? AND a.AccountId=s.AccountId;"); //
     var_dump($selectQuery);
     var_dump([$username]);
-    var_dump($selectQuery->execute([$username])); //
+    var_dump($selectQuery->execute([$username,$username])); //
     var_dump($accounts = $selectQuery->fetchAll(PDO::FETCH_CLASS, 'Account'));
     $testQuery = $connection->prepare("SELECT * FROM accounts as a,sellers as b WHERE a.accountId=b.accountId AND Username=?; ");
     var_dump($testQuery->execute([$username]));
@@ -24,7 +24,7 @@ if (!empty($_POST)) {
     $accounts[0]->Gender="Male";
     else
     $accounts[0]->Gender="Female";
-
+    var_dump(password_verify($password, $accounts[0]->PasswordHash));
     if (password_verify($password, $accounts[0]->PasswordHash)) {
         session_start();
         $_SESSION['Account'] = serialize($accounts[0]);
@@ -38,5 +38,5 @@ if (!empty($_POST)) {
     echo "Please Fill login info";
     header("Refresh: 5;../views/Registration.php");
 }
-ob_end_clean();
+//ob_end_clean();
 ?>
