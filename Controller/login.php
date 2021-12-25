@@ -38,5 +38,5 @@ if (!empty($_POST)) {
     echo "Please Fill login info";
     header("Refresh: 5;../views/Registration.php");
 }
-//ob_end_clean();
+ob_end_clean();
 ?>

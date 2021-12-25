@@ -30,8 +30,8 @@ if (!isset($_SESSION['Account'])) {
                             <div class="col-sm-4 bg-c-lite-green user-profile">
                                 <div class="card-block text-center text-white">
                                     <div class="m-b-25"> <img src="https://img.icons8.com/bubbles/100/000000/user.png" class="img-radius" alt="User-Profile-Image"> </div>
-                                    <h6 class="f-w-600"><?= $account->fName . " " . $account->mName . " " . $account->lName ?></h6>
-                                    <p><?= $account->AccountType ?></p>
+                                    <h3 class="f-w-600"><?= $account->fName . " " . $account->mName . " " . $account->lName ?></h3>
+                                    <h6><?= $account->AccountType ?></h6>
                                     <?php
                                     if ($account->Status == 1)
                                         echo "<p>Account Activated</p>";
@@ -39,51 +39,51 @@ if (!isset($_SESSION['Account'])) {
                                         echo "<p>Account Is Not Activated</p>";
                                     ?>
                                     <i class=" mdi mdi-square-edit-outline feather icon-edit m-t-10 f-16"></i>
-                                    <h6 class="f-w-600"><a href="../Controller/logout.php">log out</a></h6>
+                                    <h5 class="f-w-600"><a href="../Controller/logout.php">log out</a></h5>
                                 </div>
                             </div>
                             <div class="col-sm-8">
                                 <div class="card-block">
-                                    <h6 class="m-b-20 p-b-5 b-b-default f-w-600">Personal Information</h6>
+                                    <h3 class="m-b-20 p-b-5 b-b-default f-w-600">Personal Information</h3>
                                     <div class="row">
                                         <div class="col-sm-6">
-                                            <p class="m-b-10 f-w-600">Email</p>
-                                            <h6 class="text-muted f-w-400"><?= $account->EmailAddress ?></h6>
+                                            <h4 class="m-b-10 f-w-600">Email</h4>
+                                            <h5 class="text-muted f-w-400"><?= $account->EmailAddress ?></h5>
                                         </div>
                                         <div class="col-sm-6">
-                                            <p class="m-b-10 f-w-600">Username</p>
-                                            <h6 class="text-muted f-w-400"><?= $account->Username ?></h6>
+                                            <h4 class="m-b-10 f-w-600">Username</h4>
+                                            <h5 class="text-muted f-w-400"><?= $account->Username ?></h5>
                                         </div>
                                     </div>
                                     <div class="row">
                                         <div class="col-sm-6">
-                                            <p class="m-b-10 f-w-600">Contact Email</p>
-                                            <h6 class="text-muted f-w-400"><?= $account->ContactEmail ?></h6>
+                                            <h4 class="m-b-10 f-w-600">Contact Email</h4>
+                                            <h5 class="text-muted f-w-400"><?= $account->ContactEmail ?></h5>
                                         </div>
                                         <div class="col-sm-6">
-                                            <p class="m-b-10 f-w-600">Gender</p>
-                                            <h6 class="text-muted f-w-400"><?= $account->Gender ?></h6>
+                                            <h4 class="m-b-10 f-w-600">Gender</h4>
+                                            <h5 class="text-muted f-w-400"><?= $account->Gender ?></h5>
                                         </div>
                                     </div>
                                     <div class="row">
                                         <div class="col-sm-6">
-                                            <p class="m-b-10 f-w-600">Country</p>
-                                            <h6 class="text-muted f-w-400"><?= $account->Country ?></h6>
+                                            <h4 class="m-b-10 f-w-600">Country</h4>
+                                            <h5 class="text-muted f-w-400"><?= $account->Country ?></h5>
                                         </div>
                                         <div class="col-sm-6">
-                                            <p class="m-b-10 f-w-600">Birth Date</p>
-                                            <h6 class="text-muted f-w-400"><?= $account->BirthDate ?></h6>
+                                            <h4 class="m-b-10 f-w-600">Birth Date</h4>
+                                            <h5 class="text-muted f-w-400"><?= $account->BirthDate ?></h5>
                                         </div>
                                     </div>
-                                    <h6 class="m-b-20 m-t-40 p-b-5 b-b-default f-w-600">General Information</h6>
+                                    <h3 class="m-b-20 m-t-40 p-b-5 b-b-default f-w-600">General Information</h3>
                                     <div class="row">
                                         <div class="col-sm-6">
-                                            <p class="m-b-10 f-w-600">Balance</p>
-                                            <h6 class="text-muted f-w-400"><?= $account->Balance ?></h6>
+                                            <h4 class="m-b-10 f-w-600">Balance</h4>
+                                            <h5 class="text-muted f-w-400"><?= $account->Balance ?></h5>
                                         </div>
                                         <div class="col-sm-6">
-                                            <p class="m-b-10 f-w-600">Strikes</p>
-                                            <h6 class="text-muted f-w-400"><?= $account->Strikes ?></h6>
+                                            <h4 class="m-b-10 f-w-600">Strikes</h4>
+                                            <h5 class="text-muted f-w-400"><?= $account->Strikes ?></h5>
                                         </div>
                                     </div>
                                     <ul class="social-link list-unstyled m-t-40 m-b-10 d-flex justify-content-end">
