@@ -39,26 +39,20 @@
                         <span class="fast-flicker">L</span>og<span class="flicker">i</span>N
                     </div>
                     <!--add animation -->
-                    <form id="formBox">
-
+                    <form id="formBox" method="POST" action="../Controller/login.php">
                         <div class="mb-3">
-                            <input class="form-control" id="username" placeholder="Username"></input>
+                            <input class="form-control" name='username' id="username" placeholder="Username"></input>
                             <p class="hide text-danger" id='usernameError'>This field is required</p>
                         </div>
                         <div class="mb-3">
-                            <input type="text" class="form-control " id="email" placeholder="Email">
-                            <p class="hide text-danger" id='emailError'></p>
-                        </div>
-                        <div class="mb-3">
-                            <input type="password" class="form-control" id="password" placeholder="Password"></input>
+                            <input type="password" name='password' class="form-control" id="password" placeholder="Password"></input>
                             <p class="hide text-danger" id='passwordError'>This field is required</p>
                         </div>
 
                         <div class="d-flex justify-content-between">
-                            <a href="Registration.html" class=" align-self-end">Don't have an account?</a>
+                            <a href="Registration.php" class=" align-self-end">Don't have an account?</a>
                             <button type="submit" class="align-self-end submit">Login</button>
                         </div>
-
                     </form>
 
 
@@ -75,8 +69,6 @@
 <script>
     //vars
     form = document.getElementById("formBox");
-    email = document.getElementById("email")
-    emailError = document.getElementById("emailError")
     username = document.getElementById("username")
     usernameError = document.getElementById("usernameError")
     password = document.getElementById("password")
@@ -92,21 +84,6 @@
     //Valiation
     function validate() {
         flag = true;
-
-
-        if (email.value === "" || email.value === null) {
-            flag = false;
-            emailError.innerHTML = "This field is required";
-            emailError.classList.remove("hide");
-        } else {
-            if (validateEmail(email.value)) {
-                emailError.classList.add("hide");
-            } else {
-                flag = false;
-                emailError.innerHTML = "Please enter a valid email format";
-                emailError.classList.remove("hide");
-            }
-        }
         if (username.value === "" || username.value === null) {
             flag = false;
             usernameError.classList.remove("hide");
@@ -118,13 +95,6 @@
 
         return flag;
     }
-    const validateEmail = (email) => {
-        return String(email)
-            .toLowerCase()
-            .match(
-                /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
-            );
-    };
 </script>
 
 </html>
