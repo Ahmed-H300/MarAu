@@ -1,10 +1,6 @@
-<?php
-session_start();
-
-$_SESSION['']
-
+<?php 
+  require "../Controller/AuthorizeSeller.php";
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -36,38 +32,38 @@ $_SESSION['']
 
     <div class="row align-items-left container-form" id="formBox">
       <div class="col-lg-12">
-          <form id="formBox" method="POST" action="../Controller/addGame.php">
+          <form id="formBox" method="POST" action="../Controller/addGame.php" enctype="multipart/form-data">
             <div id="1">
               
               <h1>Add New Game</h1>
 
               <div class="mb-3">
-                <input type="text" class="form-control" id="gamename" placeholder="Name"></input>
+                <input type="text" class="form-control" id="gamename" name="gamename" placeholder="Name"></input>
                 <p class="hide text-danger" id='gamenameError'>This field is required</p>
               </div>
               
               <div class="mb-3">
-                <textarea style="height: 100px;" class="form-control" id="description" placeholder="Description"></textarea>
+                <textarea style="height: 100px;" class="form-control" id="description" name="description" placeholder="Description"></textarea>
                 <p class="hide text-danger" id='descriptionError'>This field is required</p>
               </div>
 
               <div class="mb-3">
-                <input class="form-control" id="version" placeholder="Version"></input>
+                <input class="form-control" id="version" name="version" placeholder="Version"></input>
                 <p class="hide text-danger" id='versionError'>This field is required</p>
               </div>    
 
               <div class="mb-3">
-                <input type="number" class="form-control" id="price" placeholder="Price"></input>
+                <input type="number" class="form-control" id="price" name="price" placeholder="Price"></input>
                 <p class="hide text-danger" id='priceError'>This field is required</p>
               </div>  
 
               <div class="mb-3">
-                <input type="number" class="form-control" id="sale" placeholder="Initial Sale"></input>
+                <input type="number" class="form-control" id="sale" name="sale" placeholder="Initial Sale"></input>
                 <p class="hide text-danger" id='saleError'>This field is required</p>
               </div>      
 
               <div class="mb-3">
-                <select class="form-select" aria-label="type" id="type">
+                <select class="form-select" aria-label="type" id="type" name="type">
                   <option selected value='None' disabled>Type</option>
                   <option value="Action">Action</option>
                   <option value="Adventure">Adventure</option>
@@ -81,13 +77,13 @@ $_SESSION['']
               
               <div class="mb-3">
                 <label for="releasedate" class="form-label">Release Date </label>
-                <input type="date" class="form-control " id="releasedate" placeholder="Release Date">
+                <input type="date" class="form-control " id="releasedate" name="releasedate" placeholder="Release Date">
                 <p class="hide text-danger" id='releasedateError'></p>
               </div>
 
               <div class="mb-3">
                 <label for="gameimg" class="form-label">Game Image</label>
-                <input type="file" class="form-control" id="gameimg" placeholder="Game Image"></input>
+                <input type="file" class="form-control" id="gameimg" name="gameimg" placeholder="Game Image"></input>
                 <p class="hide text-danger" id='gameimgError'>This field is required</p>
               </div> 
 
@@ -127,7 +123,7 @@ $_SESSION['']
   releasedate = document.getElementById("releasedate")
   releasedateError = document.getElementById("releasedateError")
 
-  gameimg = document.getElementById("gameimg")
+     = document.getElementById("gameimg")
   gameimgError = document.getElementById("gameimgError")
 
   form.addEventListener("submit", (e) => {
