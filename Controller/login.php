@@ -20,10 +20,11 @@ if (!empty($_POST)) {
         $accounts[0]->AccountType = "Buyer";
     else $accounts[0]->AccountType = "Seller";
     var_dump($accounts[0]);
-    if($accounts[0]=="M")
+    if($accounts[0]->Gender==="M")
     $accounts[0]->Gender="Male";
     else
     $accounts[0]->Gender="Female";
+    var_dump($accounts[0]);
     var_dump(password_verify($password, $accounts[0]->PasswordHash));
     if (password_verify($password, $accounts[0]->PasswordHash)) {
         session_start();

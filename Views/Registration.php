@@ -10,7 +10,13 @@
   <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
   <link href="../css/styles.css" rel="stylesheet">
 </head>
-
+<?php
+session_start();
+include '../Models/Account.php';
+if (isset($_SESSION['Account'])) {
+    header("Location: ../views/Account");
+} 
+?>
 <body class="w3-animate-opacity">
   <!-- Nav Bar Section -->
   <nav class="navbar navbar-expand-lg navbar-light ">

@@ -38,8 +38,8 @@ if (!isset($_SESSION['Account'])) {
                                     else
                                         echo "<p>Account Is Not Activated</p>";
                                     ?>
-                                    <i class=" mdi mdi-square-edit-outline feather icon-edit m-t-10 f-16"></i>
-                                    <h5 class="f-w-600"><a href="../Controller/logout.php">log out</a></h5>
+                                    <a class="btn" href="./EditAccount.php"><i class=" mdi mdi-square-edit-outline feather icon-edit m-t-10 f-16"></i></a>
+                                    <h5 class="f-w-600"><a class="btn btn-danger" href="../Controller/logout.php">log out</a></h5>
                                 </div>
                             </div>
                             <div class="col-sm-8">

@@ -14,7 +14,7 @@ if (!empty($_POST)) {
     $type = filter_var($_POST['type'], FILTER_SANITIZE_STRING); //
     $date = $_POST['birthdate'];
     
-    if ($type == "Buyer")
+    if ($type == 1)
         $type = 0;
     else
         $type = 1;
@@ -26,7 +26,7 @@ if (!empty($_POST)) {
 
     require "../connection.php";
 
-    $insertQuery = $connection->prepare("CALL ADD_ACCOUNT (?,?,?,?,?,?,?,?,?,?,?)"); //
+    $insertQuery = $connection->prepare("CALL Edit_Account (?,?,?,?,?,?,?,?,?,?,?)"); //
     var_dump($insertQuery);
     var_dump([$username, $fName,$mName,$lName, $hashed_password, $email, $gender, $date,$type,$country,$contactEmail]);
     var_dump( $insertQuery->execute([$username, $fName,$mName,$lName, $hashed_password, $email, $gender, $date,$type,$country,$contactEmail])); //
