@@ -30,6 +30,7 @@ if (!empty($_POST)) {
     var_dump($insertQuery);
     var_dump([$username, $fName,$mName,$lName, $hashed_password, $email, $gender, $date,$type,$country,$contactEmail]);
     var_dump( $insertQuery->execute([$username, $fName,$mName,$lName, $hashed_password, $email, $gender, $date,$type,$country,$contactEmail])); //
+
     header("Location: ../views/login.php");
 } else {
 
