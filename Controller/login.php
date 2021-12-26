@@ -7,18 +7,11 @@ if (!empty($_POST)) {
     $password = $_POST['password'];
     $hashed_password = password_hash($password, PASSWORD_DEFAULT);
     require "../connection.php";
-    $selectQuery = $connection->prepare("SELECT a.AccountId,Username,fName,mName,lName,PasswordHash,EmailAddress,Gender,BirthDate,Status,Country,ContactEmail,Strikes,Balance,BuyerId as ID FROM accounts as a,buyers as b WHERE Username=? AND a.AccountId=b.AccountId UNION SELECT a.AccountId,Username,fName,mName,lName,PasswordHash,EmailAddress,Gender,BirthDate,Status,Country,ContactEmail,Strikes,Balance,SellerId as ID FROM accounts as a,sellers as s WHERE Username=? AND a.AccountId=s.AccountId;"); //
+    $selectQuery = $connection->prepare("SELECT * FROM Account_info WHERE Username=?;"); //
     var_dump($selectQuery);
     var_dump([$username]);
-    var_dump($selectQuery->execute([$username,$username])); //
+    var_dump($selectQuery->execute([$username])); //
     var_dump($accounts = $selectQuery->fetchAll(PDO::FETCH_CLASS, 'Account'));
-    $testQuery = $connection->prepare("SELECT * FROM accounts as a,sellers as b WHERE a.accountId=b.accountId AND Username=?; ");
-    var_dump($testQuery->execute([$username]));
-    $test = $testQuery->fetchAll(PDO::FETCH_CLASS);
-    var_dump($test);
-    if (empty($test))
-        $accounts[0]->AccountType = "Buyer";
-    else $accounts[0]->AccountType = "Seller";
     var_dump($accounts[0]);
     if($accounts[0]->Gender==="M")
     $accounts[0]->Gender="Male";

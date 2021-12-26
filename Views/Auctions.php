@@ -77,10 +77,10 @@
 
 </body>
 <script>
-// function myFunction() {
-//     var audio = new Audio("../audio/gangsta.mp3");
-// audio.play();
-// }
+function myFunction() {
+    var audio = new Audio("../audio/gangsta.mp3");
+audio.play();
+}
 </script>
 
 </html>
