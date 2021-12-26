@@ -76,7 +76,7 @@ if (!empty($_POST)) {
                 echo "Sorry, there was an error uploading your file.";
             }
         }
-    //header("Location: ../views/Game_Details.php?id=" . $gameId);
+    header("Location: ../views/Game_Details.php?id=" . $gameId);
 } else {
 
     echo "Please Fill All Game Data";

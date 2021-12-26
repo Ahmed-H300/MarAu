@@ -123,7 +123,7 @@
   releasedate = document.getElementById("releasedate")
   releasedateError = document.getElementById("releasedateError")
 
-     = document.getElementById("gameimg")
+  gameimg = document.getElementById("gameimg")
   gameimgError = document.getElementById("gameimgError")
 
   form.addEventListener("submit", (e) => {
