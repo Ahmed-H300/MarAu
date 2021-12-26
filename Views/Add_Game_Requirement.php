@@ -41,7 +41,7 @@
               
               <h1>Add Game Requirement</h1>
 
-              <input type="hidden" id="gameId" value="<?= $gameId ?>"></input>
+              <input type="hidden" id="gameId" name="gameId" value="<?= $gameId ?>"></input>
 
               <div class="mb-3">
                 <input class="form-control" id="OperatingSystem" name="OperatingSystem" placeholder="Operating System"></input>
@@ -56,7 +56,12 @@
               <div class="mb-3">
                 <input class="form-control" id="RecommendedCPU" name="RecommendedCPU" placeholder="Recommended CPU"></input>
                 <p class="hide text-danger" id='RecommendedCPUError'>This field is required</p>
-              </div>    
+              </div>   
+
+              <div class="mb-3">
+                <input class="form-control" id="MinimumGPU" name="MinimumGPU" placeholder="Minimum GPU"></input>
+                <p class="hide text-danger" id='MinimumGPUError'>This field is required</p>
+              </div> 
 
               <div class="mb-3">
                 <input class="form-control" id="RecommendedGPU" name="RecommendedGPU" placeholder="Recommended GPU"></input>
@@ -119,9 +124,9 @@
 
   form.addEventListener("submit", (e) => {
     if (!validate()) 
-    e.preventDefault();
+      e.preventDefault();
     else 
-    console.log("click");
+      console.log("click");
   });
 
   //Valiation
