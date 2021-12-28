@@ -6,7 +6,7 @@ if(!isset($_SESSION['Account'])){
 }
 else{
     $account = unserialize($_SESSION['Account']);
-    if($account->AccountType == "Admin")
+    if($account->AccountType != "Admin")
     {
         header("Location: ../views/Unauthorized_Request.php");
     }
