@@ -8,9 +8,9 @@
     <title>MarAu </title>
 
     <link href="../css/bootstrap.min.css" rel="stylesheet">
-    <link href="../css/account-style.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/MaterialDesign-Webfont/3.6.95/css/materialdesignicons.css" rel="stylesheet">
-
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link href="../css/account-style.css" rel="stylesheet">
 </head>
 <?php
 session_start();
@@ -24,7 +24,7 @@ if (!isset($_SESSION['Account'])) {
     <div class="page-content page-container" id="page-content">
         <div class="padding">
             <div class="row container d-flex justify-content-center">
-                <div class=" offset-xl-1 col-xl-7 col-md-12">
+                <div class=" offset-xl-1 col-xl-11 col-md-12">
                     <div class="card user-card-full">
                         <div class="row m-l-0 m-r-0">
                             <div class="col-sm-4 bg-c-lite-green user-profile">

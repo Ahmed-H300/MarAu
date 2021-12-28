@@ -24,7 +24,7 @@ if (!isset($_SESSION['Account'])) {
     <div class="page-content page-container" id="page-content">
         <div class="padding">
             <div class="row container d-flex justify-content-center">
-                <div class=" offset-xl-1 col-xl-7 col-md-12">
+                <div class=" offset-xl-1 col-xl-11 col-md-12">
                     <div class="card user-card-full">
                         <div class="row m-l-0 m-r-0">
                             <div class="col-sm-4 bg-c-lite-green user-profile">

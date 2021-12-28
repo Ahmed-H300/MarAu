@@ -3,6 +3,7 @@ body {
   color: rgb(0, 0, 0);
   background-position: center;
   background-size: cover;
+  background-attachment: fixed;
   background-repeat: no-repeat;
 }
 
