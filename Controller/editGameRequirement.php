@@ -35,7 +35,7 @@ if (!empty($_POST)) {
         echo "Unauthorized Request";
     }
 
-    $insertQuery = $connection->prepare("CALL Add_Game_Requirements (?,?,?,?,?,?,?,?,?)");
+    $insertQuery = $connection->prepare("CALL Edit_Game_Requirements (?,?,?,?,?,?,?,?,?)");
     var_dump([$gameId, $OperatingSystem, $MinimumCPU, $RecommendedCPU, $MinimumGPU, $RecommendedGPU, $MinimumRam, $RecommendedRam, $Storage]);
     $insertQuery->execute([$gameId, $OperatingSystem, $MinimumCPU, $RecommendedCPU, $MinimumGPU, $RecommendedGPU, $MinimumRam, $RecommendedRam, $Storage]); //
     
