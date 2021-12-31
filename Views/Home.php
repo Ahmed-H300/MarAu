@@ -16,7 +16,7 @@
         <a href="#Profile">MY Profile</a>
         <a href="#contact">Contact</a>
     </div> -->
-    <nav id="navbar" class="navbar navbar-expand-lg navbar-dark">
+    <!-- <nav id="navbar" class="navbar navbar-expand-lg navbar-dark">
         <div class="container-fluid">
             <a class="navbar-brand" href="https://marau.demosfortest.com/"><img src='../img//Home/super-logo.png' width="50" height="50"></a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -42,7 +42,8 @@
             </ul>
           </div>
         </div>
-      </nav>
+      </nav> -->
+      <?php  include ('nav.php') ?>
     <!-- welcome text -->
     <section id="sec-1">
         <div class="container">

@@ -10,12 +10,6 @@
 </head>
 
 <body>
-    <!-- <div id="navbar">
-        <a class="navbar-brand" href="https://marau.demosfortest.com/"><img src='../img//Home/super-logo.png' width="50" height="50"></a>
-        <a href="../Views/login.html">Sign in</a>
-        <a href="#Profile">MY Profile</a>
-        <a href="#contact">Contact</a>
-    </div> -->
     <nav id="navbar" class="navbar navbar-expand-lg navbar-dark">
         <div class="container-fluid">
             <a class="navbar-brand" href="https://marau.demosfortest.com/"><img src='../img//Home/super-logo.png' width="50" height="50"></a>
@@ -25,43 +19,27 @@
           <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="../Views/Home">Home</a>
+                <a class="nav-link active" aria-current="page" href="../Views/Home.html">Home</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="../Views/login">Sign in</a>
+                <a class="nav-link" href="../Views/login.html">Sign in</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="../Views/Account">MY Profile</a>
+                <a class="nav-link" href="#">MY Profile</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="../Views/Buyer_Page">MY Games</a>
+                <a class="nav-link" href="../Views/Buyer_Page.html">MY Games</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">Contact Us</a>
+                <a class="nav-link" href="#">Contact</a>
               </li>
             </ul>
           </div>
         </div>
       </nav>
-    <!-- welcome text -->
-    <section id="sec-1">
-        <div class="container">
-          <div>Ready for the True Gaming ?</div>
-          <a href="#sec-2">
-            <div class="scroll-down"></div>
-          </a>
-        </div>
-      </section>
-      <!-- Top Gaem -->
-      <a href="../Views/game">
-        <section id="sec-2">
-            <!-- <img src="../img/Home/game.jpg" width="200" height=""> -->
-        </section>
-      </a>
-      
-    <!-- Other games -->
-    <h2 class="games-title" style="color: rgb(148, 148, 148); margin: 80px auto;">
-        Games
+    <!-- MY games -->
+    <h2 class="games-title" id="font-buyer">
+        My Games
     </h2>
     <section class="Games">
         <div class="Games-item">
@@ -129,7 +107,19 @@
         </div>
     </section>
 <script src='../js/bootstrap.min.js'></script>
-<script src="../js/nav.js"></script>
+<script>
+// When the user scrolls down 20px from the top of the document, slide down the navbar
+var prevScrollpos = window.pageYOffset;
+window.onscroll = function() {
+var currentScrollPos = window.pageYOffset;
+  if (prevScrollpos > currentScrollPos) {
+    document.getElementById("navbar").style.top = "0";
+  } else {
+    document.getElementById("navbar").style.top = "-100px";
+  }
+  prevScrollpos = currentScrollPos;
+}
+</script>
 
 </body>
 </html>
