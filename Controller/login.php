@@ -1,7 +1,8 @@
 <?php
 var_dump($_POST);
-ob_start();
+// ob_start();
 require "../Models/Account.php";
+require "../Models/Buyer_Game.php";
 if (!empty($_POST)) {
     $username = filter_var($_POST['username'], FILTER_SANITIZE_STRING); //
     $password = $_POST['password'];
@@ -22,7 +23,18 @@ if (!empty($_POST)) {
     if (password_verify($password, $accounts[0]->PasswordHash)) {
         session_start();
         $_SESSION['Account'] = serialize($accounts[0]);
-        header("Location: ../views/Account");
+
+        if ($accounts[0]->AccountType == 'Buyer')
+        {
+            $selectgamesQuery = $connection->prepare("CALL Get_Buyer_Games (?);"); // for my games
+            var_dump($selectgamesQuery->execute([$accounts[0]->ID])); //
+            var_dump($Games = $selectgamesQuery->fetchAll(PDO::FETCH_CLASS));
+
+            $_SESSION['Buyer_Game'] = serialize($Games);
+        }
+
+
+        // header("Location: ../views/Account");
     } else
         header("Location: ../views/login.php");
 

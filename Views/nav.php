@@ -1,7 +1,3 @@
-<?php
-
-?>
-
 <nav id="navbar" class="navbar navbar-expand-lg navbar-dark">
         <div class="container-fluid">
             <a class="navbar-brand" href="https://marau.demosfortest.com/"><img src='../img//Home/super-logo.png' width="50" height="50"></a>
@@ -28,7 +24,7 @@
             </ul>
           </div>
         </div>
-      </nav>
+</nav>
 
 
 

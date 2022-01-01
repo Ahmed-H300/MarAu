@@ -1,3 +1,13 @@
+<?php
+if(isset($_GET['Id']) == true){
+  $id = $_GET['Id'];
+  
+}
+else{
+  header("Location: ../views/Not_Found.php");
+}
+// require ''
+?>
 <!DOCTYPE html>
 <html lang="en">
     
@@ -39,7 +49,7 @@
       </nav>
     <!-- MY games -->
     <h2 class="games-title" id="font-buyer">
-        My Games
+        Seller Page
     </h2>
     <section class="Games">
         <div class="Games-item">
