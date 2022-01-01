@@ -6,7 +6,7 @@ require '../Models/Buyer_Game.php';
 if (!isset($_SESSION['Buyer_Game'])) {
   
 } else $Games = unserialize($_SESSION['Buyer_Game']);
-var_dump($Games);
+//var_dump($Games);
 // $account
 ?>
 <!DOCTYPE html>
@@ -21,101 +21,30 @@ var_dump($Games);
 </head>
 
 <body>
-    <nav id="navbar" class="navbar navbar-expand-lg navbar-dark">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="https://marau.demosfortest.com/"><img src='../img//Home/super-logo.png' width="50" height="50"></a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav">
-              <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="../Views/Home.html">Home</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="../Views/login.html">Sign in</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">MY Profile</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="../Views/Buyer_Page.html">MY Games</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Contact</a>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </nav>
+  <?php  include ('nav.php') ?>
     <!-- MY games -->
     <h2 class="games-title" id="font-buyer">
         My Games
     </h2>
     <section class="Games">
-        <div class="Games-item">
-            <div style="background-image: url(../img/Home/game.jpg);" class="Games-item-image"></div>
-            <p class="title">
-                Mario 1
-            </p>
-            <button onClick="window.location.href='../Views/game.html';">
-                View Game
-            </button>
-        </div>
-        <div class="Games-item">
-            <div style="background-image: url(../img/Home/game.jpg);" class="Games-item-image"></div>
-            <p class="title">
-                Mario 2
-            </p>
-            <button onClick="window.location.href='../Views/game.html';">
-                View Game
-            </button>
-        </div>
-        <div class="Games-item">
-            <div style="background-image: url(../img/Home/game.jpg);" class="Games-item-image"></div>
-            <p class="title">
-                Mario 3
-            </p>
-            <button onClick="window.location.href='../Views/game.html';">
-                View Game
-            </button>
-        </div>
-        <div class="Games-item">
-            <div style="background-image: url(../img/Home/game.jpg);" class="Games-item-image"></div>
-            <p class="title">
-                Mario 4
-            </p>
-            <button onClick="window.location.href='../Views/game.html';">
-                View Game
-            </button>
-        </div>
-        <div class="Games-item">
-            <div style="background-image: url(../img/Home/game.jpg);" class="Games-item-image"></div>
-            <p class="title">
-                Mario 5
-            </p>
-            <button onClick="window.location.href='../Views/game.html';">
-                View Game
-            </button>
-        </div>
-        <div class="Games-item">
-            <div style="background-image: url(../img/Home/game.jpg);" class="Games-item-image"></div>
-            <p class="title">
-                Mario 6
-            </p>
-            <button onClick="window.location.href='../Views/game.html';">
-                View Game
-            </button>
-        </div>
-        <div class="Games-item">
-            <div style="background-image: url(../img/Home/game.jpg);" class="Games-item-image"></div>
-            <p class="title">
-                Mario 7
-            </p>
-            <button onClick="window.location.href='../Views/game.html';">
-                View Game
-            </button>
-        </div>
+          <?php
+            foreach ($Games as $Game) {
+              echo "
+              <div class='Games-item'>
+              <div style='background-image: url(../GamesImages/GameIcon$Game->GameId);' class='Games-item-image'></div>
+              <p class='title'>
+              $Game->Name
+          </p>
+          <a href='../Games_download/$Game->GameId' download='$Game->Name'>
+          <button>Download</button>
+          </a>
+          <a href='../Views/game.html'>
+          <button>View Game</button>
+          </a>
+      </div>   
+              ";
+            }
+              ?>
     </section>
 <script src='../js/bootstrap.min.js'></script>
 <script>

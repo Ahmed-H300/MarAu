@@ -1,6 +1,6 @@
-<? 
+<?php
 class Buyer_Game
 {
-    public int $Game_ID;
+    public int $GameId;
     public string $Name;
 }
