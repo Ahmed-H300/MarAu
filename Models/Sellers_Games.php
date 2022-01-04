@@ -1,5 +1,5 @@
 <?php
-class Buyer_Game
+class Seller_Game
 {
     public int $GameId;
     public string $Name;

@@ -18,8 +18,9 @@ if (isset($_SESSION['Account'])) {
 } 
 ?>
 <body>
+<?php  include ('nav.php') ?>
     <!-- Nav Bar Section -->
-    <nav class="navbar navbar-expand-lg navbar-light ">
+    <!-- <nav class="navbar navbar-expand-lg navbar-light ">
         <div class="offset-sm-1 container-fluid">
             <a class="navbar-brand" href="https://marau.demosfortest.com/"><img src='../img/logo.png' width="70"
                     height="70"></a>
@@ -29,7 +30,7 @@ if (isset($_SESSION['Account'])) {
                 </li>
             </ul>
         </div>
-    </nav>
+    </nav> -->
 
 
     <div class="container col-sm-8 align-items-center shadow-lg mb-5 w3-animate-opacity">
@@ -102,5 +103,6 @@ if (isset($_SESSION['Account'])) {
         return flag;
     }
 </script>
+<script src="../js/nav.js"></script>
 
 </html>

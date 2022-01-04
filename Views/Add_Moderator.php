@@ -20,7 +20,8 @@ if (isset($_SESSION['Account'])&&unserialize($_SESSION['Account'])->AccountType!
 
 <body class="w3-animate-opacity">
     <!-- Nav Bar Section -->
-    <nav class="navbar navbar-expand-lg navbar-light ">
+    <?php  include ('nav.php') ?>
+    <!-- <nav class="navbar navbar-expand-lg navbar-light ">
         <div class="offset-sm-1 container-fluid">
             <a class="navbar-brand" href="https://marau.demosfortest.com/"><img src='../img/logo.png' width="70" height="70"></a>
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
@@ -29,7 +30,7 @@ if (isset($_SESSION['Account'])&&unserialize($_SESSION['Account'])->AccountType!
                 </li>
             </ul>
         </div>
-    </nav>
+    </nav> -->
 
 
     <div class="container col-sm-8 align-items-center shadow-lg mb-5 w3-animate-opacity">
@@ -249,5 +250,5 @@ if (isset($_SESSION['Account'])&&unserialize($_SESSION['Account'])->AccountType!
             );
     };
 </script>
-
+<script src="../js/nav.js"></script>
 </html>

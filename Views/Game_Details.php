@@ -19,6 +19,7 @@
    <link href="../css/Auctions.css" rel="stylesheet">
 </head>
 <body class="dark">
+<?php  include ('nav.php') ?>
    <section class="dark">
       <div class="container py-4">
          <h1 class="h1 text-center" id="pageHeaderTitle">Game Details</h1>
@@ -73,4 +74,5 @@
    
 </body>
 <script src='../js/bootstrap.min.js'></script>
+<script src="../js/nav.js"></script>
 </html>

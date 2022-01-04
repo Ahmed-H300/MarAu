@@ -21,6 +21,7 @@ if (!isset($_SESSION['Account'])) {
 ?>
 
 <body>
+<?php  include ('nav.php') ?>
     <div class="page-content page-container" id="page-content">
         <div class="padding">
             <div class="row container d-flex justify-content-center">
@@ -106,3 +107,4 @@ if (!isset($_SESSION['Account'])) {
 </body>
 
 <script src='../js/bootstrap.min.js'></script>
+<script src="../js/nav.js"></script>

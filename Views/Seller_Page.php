@@ -5,6 +5,7 @@
     else
     {
         require "../Controller/get_all_sellergames.php";
+        //var_dump($games_seller);
         if(isset($games_seller) == false)
         {
             header("Location: ../views/Not_Found.php");
@@ -26,11 +27,19 @@
     <?php  include ('nav.php') ?>
     <!-- MY games -->
     <h2 class="games-title" id="font-buyer">
-        Seller Page
+        Seller Games
     </h2>
     <section class="Games">
     <?php
             foreach ($games_seller as $Game) {
+              if($Game->Rating == null)
+              {
+                $Rating_string = '0';
+              }
+              else
+              {
+                $Rating_string = strval($Game->Rating);
+              }
               echo "
               <div class='Games-item'>
               <div style='background-image: url(../GamesImages/GameIcon$Game->GameId);' class='Games-item-image'></div>
@@ -40,25 +49,16 @@
           <a href='../Views/Game_Details?id=$Game->GameId'>
           <button>View Game</button>
           </a>
+          <p class='title'>
+          Rating :  $Rating_string
+          </p>
       </div>   
               ";
             }
               ?>
     </section>
 <script src='../js/bootstrap.min.js'></script>
-<script>
-// When the user scrolls down 20px from the top of the document, slide down the navbar
-var prevScrollpos = window.pageYOffset;
-window.onscroll = function() {
-var currentScrollPos = window.pageYOffset;
-  if (prevScrollpos > currentScrollPos) {
-    document.getElementById("navbar").style.top = "0";
-  } else {
-    document.getElementById("navbar").style.top = "-100px";
-  }
-  prevScrollpos = currentScrollPos;
-}
-</script>
+<script src="../js/nav.js"></script>
 
 </body>
 </html>
