@@ -54,7 +54,7 @@
          <div class="postcard__bar"></div>
          <!-- Here is Seller Info -->
          <!-- Href to seller page -->
-         <h4 class="postcard__title green"><a href="#">Seller is <?= $game->SellerName ?></a></h4>
+         <h4 class="postcard__title green"><?php echo("<a href='../Views/Seller_Page?id=$game->SellerId'");  ?>>Seller is <?= $game->SellerName ?></a></h4>
         
          <ul class="postcard__tagbox">
             <li class="tag__item"><i class="fas fa-tag mr-2"></i><?= $game->Type ?></li>

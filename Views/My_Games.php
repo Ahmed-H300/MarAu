@@ -38,7 +38,7 @@ if (!isset($_SESSION['Buyer_Game'])) {
           <a href='../Games_download/$Game->GameId' download='$Game->Name'>
           <button>Download</button>
           </a>
-          <a href='../Views/game.html'>
+          <a href='../Views/Game_Details?id=$Game->GameId'>
           <button>View Game</button>
           </a>
       </div>   

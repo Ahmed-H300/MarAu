@@ -1,12 +1,15 @@
 <?php
-if(isset($_GET['Id']) == true){
-  $id = $_GET['Id'];
-  
-}
-else{
-  header("Location: ../views/Not_Found.php");
-}
-// require ''
+    if(isset($_GET['id']) == false){
+        header("Location: ../views/Not_Found.php");
+    }
+    else
+    {
+        require "../Controller/get_all_sellergames.php";
+        if(isset($games_seller) == false)
+        {
+            header("Location: ../views/Not_Found.php");
+        }
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -20,101 +23,27 @@ else{
 </head>
 
 <body>
-    <nav id="navbar" class="navbar navbar-expand-lg navbar-dark">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="https://marau.demosfortest.com/"><img src='../img//Home/super-logo.png' width="50" height="50"></a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav">
-              <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="../Views/Home.html">Home</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="../Views/login.html">Sign in</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">MY Profile</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="../Views/Buyer_Page.html">MY Games</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Contact</a>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </nav>
+    <?php  include ('nav.php') ?>
     <!-- MY games -->
     <h2 class="games-title" id="font-buyer">
         Seller Page
     </h2>
     <section class="Games">
-        <div class="Games-item">
-            <div style="background-image: url(../img/Home/game.jpg);" class="Games-item-image"></div>
-            <p class="title">
-                Mario 1
-            </p>
-            <button onClick="window.location.href='../Views/game.html';">
-                View Game
-            </button>
-        </div>
-        <div class="Games-item">
-            <div style="background-image: url(../img/Home/game.jpg);" class="Games-item-image"></div>
-            <p class="title">
-                Mario 2
-            </p>
-            <button onClick="window.location.href='../Views/game.html';">
-                View Game
-            </button>
-        </div>
-        <div class="Games-item">
-            <div style="background-image: url(../img/Home/game.jpg);" class="Games-item-image"></div>
-            <p class="title">
-                Mario 3
-            </p>
-            <button onClick="window.location.href='../Views/game.html';">
-                View Game
-            </button>
-        </div>
-        <div class="Games-item">
-            <div style="background-image: url(../img/Home/game.jpg);" class="Games-item-image"></div>
-            <p class="title">
-                Mario 4
-            </p>
-            <button onClick="window.location.href='../Views/game.html';">
-                View Game
-            </button>
-        </div>
-        <div class="Games-item">
-            <div style="background-image: url(../img/Home/game.jpg);" class="Games-item-image"></div>
-            <p class="title">
-                Mario 5
-            </p>
-            <button onClick="window.location.href='../Views/game.html';">
-                View Game
-            </button>
-        </div>
-        <div class="Games-item">
-            <div style="background-image: url(../img/Home/game.jpg);" class="Games-item-image"></div>
-            <p class="title">
-                Mario 6
-            </p>
-            <button onClick="window.location.href='../Views/game.html';">
-                View Game
-            </button>
-        </div>
-        <div class="Games-item">
-            <div style="background-image: url(../img/Home/game.jpg);" class="Games-item-image"></div>
-            <p class="title">
-                Mario 7
-            </p>
-            <button onClick="window.location.href='../Views/game.html';">
-                View Game
-            </button>
-        </div>
+    <?php
+            foreach ($games_seller as $Game) {
+              echo "
+              <div class='Games-item'>
+              <div style='background-image: url(../GamesImages/GameIcon$Game->GameId);' class='Games-item-image'></div>
+              <p class='title'>
+              $Game->Name
+          </p>
+          <a href='../Views/Game_Details?id=$Game->GameId'>
+          <button>View Game</button>
+          </a>
+      </div>   
+              ";
+            }
+              ?>
     </section>
 <script src='../js/bootstrap.min.js'></script>
 <script>

@@ -31,6 +31,6 @@ class Game
     public ?string $Storage;
 
     public int $NumberOfOrders;
-    public ?DateTime $LastOrderDate;
+    public ?string $LastOrderDate;
 
 }
