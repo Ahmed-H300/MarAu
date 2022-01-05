@@ -1,0 +1,10 @@
+1-home done
+2-library done
+3-Auction
+4-Bid
+5-Strikes
+6-reviews
+7-statistices
+8- deactivate and activate account
+9- about
+10- 
