@@ -21,6 +21,7 @@ if (!isset($_SESSION['Account'])) {
 ?>
 
 <body>
+<?php  include ('nav.php') ?>
     <div class="page-content page-container" id="page-content">
         <div class="padding">
             <div class="row container d-flex justify-content-center">
@@ -497,3 +498,4 @@ if (!isset($_SESSION['Account'])) {
         return day > 0 && day <= monthLength[month - 1];
     }
 </script>
+<script src="../js/nav.js"></script>

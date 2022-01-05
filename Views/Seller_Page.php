@@ -1,11 +1,16 @@
 <?php
-    require "../Controller/get_all_games.php";
-    //var_dump($games_seller);
-    if(isset($games) == false || isset($heighst_game) == false)
-    {
+    if(isset($_GET['id']) == false){
         header("Location: ../views/Not_Found.php");
     }
-    //var_dump($heighst_game->GameId);
+    else
+    {
+        require "../Controller/get_all_sellergames.php";
+        //var_dump($games_seller);
+        if(isset($games_seller) == false)
+        {
+            header("Location: ../views/Not_Found.php");
+        }
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -20,38 +25,14 @@
 
 <body>
     <?php  include ('nav.php') ?>
-    <!-- welcome text -->
-    <section id="sec-1">
-        <div class="container">
-          <div>Ready for the True Gaming ?</div>
-          <a href="#sec-2">
-            <div class="scroll-down"></div>
-          </a>
-        </div>
-      </section>
-      <!-- Top Gaem -->
-      <?php
-      echo("
-      
-      <a href='../Views/Game_Details?id=$heighst_game->GameId'>
-      ");
-      $path = "../GamesImages/GameIcon$heighst_game->GameId";
-      //var_dump($path);
-      echo("
-      <section style='background-image: url($path);' id='sec-2' >     
-        </section>
-      ")
-      ?>
-      </a>
-      
-    <!-- Other games -->
-    <h2 class="games-title" style="color: rgb(148, 148, 148); margin: 80px auto;">
-        Games
+    <!-- MY games -->
+    <h2 class="games-title" id="font-buyer">
+        Seller Games
     </h2>
     <section class="Games">
     <?php
-            foreach ($games as $Game) {
-            if($Game->Rating == null)
+            foreach ($games_seller as $Game) {
+              if($Game->Rating == null)
               {
                 $Rating_string = '0';
               }
@@ -65,11 +46,9 @@
               <p class='title'>
               $Game->Name
           </p>
-          
           <a href='../Views/Game_Details?id=$Game->GameId'>
           <button>View Game</button>
           </a>
-          
           <p class='title'>
           Rating :  $Rating_string
           </p>

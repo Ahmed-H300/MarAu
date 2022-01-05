@@ -17,6 +17,7 @@
 
 <body>
   <!-- Nav Bar Section -->
+  <?php  include ('nav.php') ?>
   <nav class="navbar navbar-expand-lg navbar-light ">
     <div class="offset-sm-1 container-fluid">
       <a class="navbar-brand" href="https://marau.demosfortest.com/"><img src='../img/logo.png' width="70" height="70"></a>
@@ -192,5 +193,6 @@
     return flag;
   }
 </script>
+<script src="../js/nav.js"></script>
 
 </html>

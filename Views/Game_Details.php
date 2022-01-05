@@ -19,6 +19,7 @@
    <link href="../css/Auctions.css" rel="stylesheet">
 </head>
 <body class="dark">
+<?php  include ('nav.php') ?>
    <section class="dark">
       <div class="container py-4">
          <h1 class="h1 text-center" id="pageHeaderTitle">Game Details</h1>
@@ -54,7 +55,7 @@
          <div class="postcard__bar"></div>
          <!-- Here is Seller Info -->
          <!-- Href to seller page -->
-         <h4 class="postcard__title green"><a href="<?= '/Views/Seller_Page.php?id='. $game->SellerId ?>">Seller is <?= $game->SellerName ?></a></h4>
+         <h4 class="postcard__title green"><?php echo("<a href='../Views/Seller_Page?id=$game->SellerId'");  ?>>Seller is <?= $game->SellerName ?></a></h4>
         
          <ul class="postcard__tagbox">
             <li class="tag__item"><i class="fas fa-tag mr-2"></i><?= $game->Type ?></li>
@@ -78,4 +79,5 @@
    
 </body>
 <script src='../js/bootstrap.min.js'></script>
+<script src="../js/nav.js"></script>
 </html>

@@ -10,7 +10,7 @@
 
     <link href="../css/Auctions.css" rel="stylesheet">
 </head>
-
+<?php  include ('nav.php') ?>
 <body onclick="myFunction()">
     <section class="dark">
         <div class="container py-4">
@@ -82,5 +82,6 @@ function myFunction() {
 audio.play();
 }
 </script>
+<script src="../js/nav.js"></script>
 
 </html>

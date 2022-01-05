@@ -1,11 +1,13 @@
 <?php
-    require "../Controller/get_all_games.php";
-    //var_dump($games_seller);
-    if(isset($games) == false || isset($heighst_game) == false)
-    {
-        header("Location: ../views/Not_Found.php");
-    }
-    //var_dump($heighst_game->GameId);
+require '../Controller/AuthorizeSeller.php';
+require '../Models/Sellers_Games.php';
+// session_start();
+// include '../Models/Account.php';
+if (!isset($_SESSION['Seller_Game'])) {
+  
+} else $Games = unserialize($_SESSION['Seller_Game']);
+//var_dump($Games);
+// $account
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -19,38 +21,14 @@
 </head>
 
 <body>
-    <?php  include ('nav.php') ?>
-    <!-- welcome text -->
-    <section id="sec-1">
-        <div class="container">
-          <div>Ready for the True Gaming ?</div>
-          <a href="#sec-2">
-            <div class="scroll-down"></div>
-          </a>
-        </div>
-      </section>
-      <!-- Top Gaem -->
-      <?php
-      echo("
-      
-      <a href='../Views/Game_Details?id=$heighst_game->GameId'>
-      ");
-      $path = "../GamesImages/GameIcon$heighst_game->GameId";
-      //var_dump($path);
-      echo("
-      <section style='background-image: url($path);' id='sec-2' >     
-        </section>
-      ")
-      ?>
-      </a>
-      
-    <!-- Other games -->
-    <h2 class="games-title" style="color: rgb(148, 148, 148); margin: 80px auto;">
-        Games
+  <?php  include ('nav.php') ?>
+    <!-- MY games -->
+    <h2 class="games-title" id="font-buyer">
+        My Games
     </h2>
     <section class="Games">
-    <?php
-            foreach ($games as $Game) {
+          <?php
+            foreach ($Games as $Game) {
             if($Game->Rating == null)
               {
                 $Rating_string = '0';
@@ -65,11 +43,15 @@
               <p class='title'>
               $Game->Name
           </p>
-          
+          <a href='../Games_download/$Game->GameId' download='$Game->Name'>
+          <button>Download</button>
+          </a>
           <a href='../Views/Game_Details?id=$Game->GameId'>
           <button>View Game</button>
           </a>
-          
+          <a href='../Views/Edit_Game?id=$Game->GameId'>
+          <button>Edit Game</button>
+          </a>
           <p class='title'>
           Rating :  $Rating_string
           </p>
