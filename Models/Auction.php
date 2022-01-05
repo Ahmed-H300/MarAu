@@ -8,11 +8,11 @@ class Auction {
     
     public int $GameId;
     public string $GameName;
+    public string $GameDescription;
 
-
-    public int $HighestBidId;
-    public int $HighestBidBuyerId;
+    public ?int $HighestBidId;
+    public ?int $HighestBidBuyerId;
     public int $HighestBidAmount;
-    public string $HighestBidBuyerUserName;
-    public string $HighestBidDate;
+    public ?string $HighestBidBuyerUserName;
+    public ?string $HighestBidDate;
 }
