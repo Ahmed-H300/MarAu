@@ -7,6 +7,6 @@ $query = $connection->prepare("SELECT games_details.GameId,games_details.Name,ga
 $result = $query->execute();
 
 $games = $query->fetchAll(PDO::FETCH_CLASS, 'Seller_Game');
-$heighst_game = $games[0];
+$heighest_game = $games[0];
 
 ?>
