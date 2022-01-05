@@ -54,7 +54,7 @@
          <div class="postcard__bar"></div>
          <!-- Here is Seller Info -->
          <!-- Href to seller page -->
-         <h4 class="postcard__title green"><a href="#">Seller is <?= $game->SellerName ?></a></h4>
+         <h4 class="postcard__title green"><a href="<?= '/Views/Seller_Page.php?id='. $game->SellerId ?>">Seller is <?= $game->SellerName ?></a></h4>
         
          <ul class="postcard__tagbox">
             <li class="tag__item"><i class="fas fa-tag mr-2"></i><?= $game->Type ?></li>
@@ -63,7 +63,12 @@
             <li class="tag__item"><i class="fas fa-clock mr-2"></i>Price: <?= $game->Price ?></li>
             <li class="tag__item play green">
                <!-- Href to buy it -->
-               <a href="#"><i class="fas fa-play mr-2"></i>Buy Now!</a>
+               <form id="form1" method="POST" action="../Controller/orderGame.php">
+                  <input type="hidden" value="<?= $game->GameId ?>" name="gameId" id="gameId"></input>   
+                  <a href="#" onclick="document.getElementById('form1').submit();"><i class="fas fa-play mr-2"></i>
+                  Buy Now!
+               </a>
+               </form>
             </li>
          </ul>
       </div>
