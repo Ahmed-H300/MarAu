@@ -1,5 +1,5 @@
 <?php
-    require "../Controller/get_top_three_games.php";
+    require "../Controller/get_all_games.php";
     //var_dump($games_seller);
     if(isset($games) == false || isset($heighest_game) == false)
     {
@@ -20,32 +20,8 @@
 
 <body>
     <?php  include ('nav.php') ?>
-    <!-- welcome text -->
-    <section id="sec-1">
-        <div class="container">
-          <div>Ready for the True Gaming ?</div>
-          <a href="#sec-2">
-            <div class="scroll-down"></div>
-          </a>
-        </div>
-      </section>
-      <!-- Top Gaem -->
-      <?php
-      echo("
-      
-      <a href='../Views/Game_Details?id=$heighest_game->GameId'>
-      ");
-      $path = "../GamesImages/GameIcon$heighest_game->GameId";
-      //var_dump($path);
-      echo("
-      <section style='background-image: url($path);' id='sec-2' >     
-        </section>
-      ")
-      ?>
-      </a>
-      
-    <!-- Other games -->
-    <h2 class="games-title" style="color: rgb(148, 148, 148); margin: 80px auto;">
+    <!-- games -->
+    <h2 class="games-title" >
         Games
     </h2>
     <section class="Games">
