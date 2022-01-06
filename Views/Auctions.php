@@ -7,63 +7,91 @@
 
     <title>MarAu </title>
     <link href="../css/bootstrap.min.css" rel="stylesheet">
-
     <link href="../css/Auctions.css" rel="stylesheet">
 </head>
-<?php  include ('nav.php') ?>
-<body onclick="myFunction()">
-    <section class="dark">
+<?php
+session_start();
+include '../Models/Account.php';
+if (!isset($_SESSION['Account'])||unserialize($_SESSION['Account'])->AccountType!="Buyer") {
+    header("Location: ../views/login");
+} else $account = unserialize($_SESSION['Account']);
+include "../Controller/Select_Auctions.php";
+
+?>
+
+<body onclick="myFunction()" class="dark">
+    <?php include('nav.php') ?>
+    <section>
         <div class="container py-4">
-            <h1 class="h1 text-center" id="pageHeaderTitle" >Auctions</h1>
+            <h1 class="h1 text-center" id="pageHeaderTitle">Auctions</h1>
             <?php
-            session_start();
-            $_SESSION['Games'] = [['Name' => 'Red Dead Redemption 3'], ['Name' => 'GTA VI'], ['Name' => 'GTA The Trialogy'], ['Name' => 'GTA The Trialogy'], ['Name' => 'GTA The Trialogy'], ['Name' => 'GTA The Trialogy'], ['Name' => 'GTA The Trialogy'], ['Name' => 'GTA The Trialogy'], ['Name' => 'GTA The Trialogy'], ['Name' => 'GTA The Trialogy'], ['Name' => 'GTA The Trialogy']];
-            $Games = $_SESSION['Games'];
-            for ($x = 0; $x < count($Games); $x += 2) {
+            // $_SESSION['Games'] = [['Name' => 'Red Dead Redemption 3'], ['Name' => 'GTA VI'], ['Name' => 'GTA The Trialogy'], ['Name' => 'GTA The Trialogy'], ['Name' => 'GTA The Trialogy'], ['Name' => 'GTA The Trialogy'], ['Name' => 'GTA The Trialogy'], ['Name' => 'GTA The Trialogy'], ['Name' => 'GTA The Trialogy'], ['Name' => 'GTA The Trialogy'], ['Name' => 'GTA The Trialogy']];
+            for ($x = 0; $x < count($Auctions); $x += 2) {
                 echo "<article class='postcard dark blue'>
 			<a class='postcard__img_link' href='#'>
-				<img class='postcard__img' src='https://picsum.photos/1000/1000' alt='Image Title' />
+				<img class='postcard__img' src='../GamesImages/GameIcon.".$Auctions[$x]->GameId.".jpg' alt='Image Title' />
 			</a>
 			<div class='postcard__text'>
-				<h1 class='postcard__title blue'><a href='#'>" . $Games[$x]['Name'] . "</a></h1>
+				<h1 class='postcard__title blue'><a href='#'>" . $Auctions[$x]->GameName . "</a></h1>
 				<div class='postcard__subtitle small'>
 					<time datetime='2020-05-25 12:00:00'>
-						<i class='fas fa-calendar-alt mr-2'></i>Mon, May 25th 2020
+						<i class='fas fa-calendar-alt mr-2'></i>" . date('d/M/Y h:i:s', strtotime($Auctions[$x]->StartDate)) . "
 					</time>
 				</div>
 				<div class='postcard__bar'></div>
-				<div class='postcard__preview-txt'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi, fugiat asperiores inventore beatae accusamus odit minima enim, commodi quia, doloribus eius! Ducimus nemo accusantium maiores velit corrupti tempora reiciendis molestiae repellat vero. Eveniet ipsam adipisci illo iusto quibusdam, sunt neque nulla unde ipsum dolores nobis enim quidem excepturi, illum quos!</div>
+				<div class='postcard__preview-txt'>" . $Auctions[$x]->GameDescription . "</div>
+                <form method='POST' action='../Controller/addBid.php'>
+                <input type='text' class='form-controls' style='display:none;' name='AuctionId' value='".$Auctions[$x]->AuctionId."' ></input>
+                <input type='text' class='form-controls' style='display:none;' name='BuyerId' value='".$account->ID."' ></input>
                 <ul class='postcard__tagbox'>
-					
-					<li class='tag__item'><i class='fas fa-clock mr-2'></i>Time Left: 55 mins.</li>
-					<li class='tag__item'><input type='text' class='form-controls' id='bid' placeholder='Amount' ></input></li>
+					<li class='tag__item'><i class='fas fa-clock mr-2'></i>Time Left: " . intval(((strtotime($Auctions[$x]->EndDate) - strtotime('now')) / 60)) . " Minutes</li>
+                    <li class='tag__item'><i class='fas fa-clock mr-2'></i>Highest: " . $Auctions[$x]->HighestBidAmount . "</li>
+					<li class='tag__item'><input type='text' class='form-controls' id='bid' name='Amount' placeholder='Amount' ></input></li>
                     <li class='tag__item play blue'>
-						<a href='#'><i class='fas fa-play mr-2'></i>Bid</a>
+						<button type='submit' style='background: none;
+                        color: inherit;
+                        border: none;
+                        padding: 0;
+                        font: inherit;
+                        cursor: pointer;
+                        outline: inherit;'><i class='fas fa-play mr-2'></i>Bid</button>
 					</li>
 				</ul>
+                </form>
 			</div>
 		</article>";
-                if (!empty($Games[$x + 1])) {
+                if (!empty($Auctions[$x + 1])) {
                     echo "<article class='postcard dark red'>
                 <a class='postcard__img_link' href='#'>
-                    <img class='postcard__img' src='https://picsum.photos/501/500' alt='Image Title' />	
+                <img class='postcard__img' src='../GamesImages/GameIcon.".$Auctions[$x+1]->GameId.".jpg' alt='Image Title' />
                 </a>
                 <div class='postcard__text'>
-                    <h1 class='postcard__title red'><a href='#'>" . $Games[$x + 1]['Name'] . "</a></h1>
+                    <h1 class='postcard__title red'><a href='#'>" . $Auctions[$x + 1]->GameName . "</a></h1>
                     <div class='postcard__subtitle small'>
                         <time datetime='2020-05-25 12:00:00'>
-                            <i class='fas fa-calendar-alt mr-2'></i>Mon, May 25th 2020
+                            <i class='fas fa-calendar-alt mr-2'></i>" . date('d/M/Y h:i:s', strtotime($Auctions[$x + 1]->StartDate)) . "
                         </time>
                     </div>
                     <div class='postcard__bar'></div>
-                    <div class='postcard__preview-txt'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi, fugiat asperiores inventore beatae accusamus odit minima enim, commodi quia, doloribus eius! Ducimus nemo accusantium maiores velit corrupti tempora reiciendis molestiae repellat vero. Eveniet ipsam adipisci illo iusto quibusdam, sunt neque nulla unde ipsum dolores nobis enim quidem excepturi, illum quos!</div>
+                    <div class='postcard__preview-txt'>" . $Auctions[$x+1]->GameDescription . "</div>
                     <ul class='postcard__tagbox'>
-                    <li class='tag__item'><i class='fas fa-clock mr-2'></i>Time Left: 55 mins.</li>
-                    <li class='tag__item'><input type='text' class='form-controls' id='bid' placeholder='Amount' ></input></li>
-                        <li class='tag__item play red'>
-                            <a href='#'><i class='fas fa-play mr-2'></i>Bid</a>
-                        </li>
-                    </ul>
+                    <form method='POST' action='../Controller/addBid.php'>
+                    <input type='text' class='form-controls' style='display:none;' name='AuctionId' value='".$Auctions[$x+1]->AuctionId."' ></input>
+                    <input type='text' class='form-controls' style='display:none;' name='BuyerId' value='".$account->ID."' ></input>
+					<li class='tag__item'><i class='fas fa-clock mr-2'></i>Time Left: " . intval(((strtotime($Auctions[$x+1]->EndDate) - strtotime('now')) / 60)) . "  Minutes</li>
+                    <li class='tag__item'><i class='fas fa-clock mr-2'></i>Highest: " . $Auctions[$x + 1]->HighestBidAmount . "</li>
+                    <li class='tag__item'><input type='text' name='Amount' class='form-controls'  placeholder='Amount' ></input></li>
+                    <li class='tag__item play red'>
+                    <button type='submit' style='background: none;
+                    color: inherit;
+                    border: none;
+                    padding: 0;
+                    font: inherit;
+                    cursor: pointer;
+                    outline: inherit;'><i class='fas fa-play mr-2'></i>Bid</button>
+                </li>
+                </ul>
+                </form>
                 </div>
             </article>
             ";
@@ -77,11 +105,9 @@
 
 </body>
 <script>
-function myFunction() {
-    var audio = new Audio("../audio/gangsta.mp3");
-audio.play();
-}
+    // function myFunction() {
+    //     var audio = new Audio("../audio/gangsta.mp3");
+    // audio.play();
+    // }
 </script>
 <script src="../js/nav.js"></script>
-
-</html>

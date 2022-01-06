@@ -85,6 +85,7 @@ if (!isset($_SESSION['Account'])) {
                                         <div class="col-sm-6">
                                             <h4 class="m-b-10 f-w-600">Balance</h4>
                                             <h5 class="text-muted f-w-400"><?= $account->Balance ?></h5>
+                                            <a class='btn btn-info' href='Buy_Currency'>Buy Currency</a>
                                         </div>
                                         <div class="col-sm-6">
                                             <h4 class="m-b-10 f-w-600">Strikes</h4>

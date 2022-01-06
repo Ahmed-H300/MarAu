@@ -1,5 +1,6 @@
 <?php
 var_dump($_POST);
+ob_start();
 if (!empty($_POST)) {
     require "../Models/Game.php";
     require "../Controller/AuthorizeSeller.php";
@@ -76,3 +77,4 @@ if (!empty($_POST)) {
     echo "Please Fill All Game Data";
     //header("Refresh: 5;../views/Add_Game.php");
 }
+ob_end_clean();

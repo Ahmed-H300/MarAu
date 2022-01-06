@@ -8,10 +8,10 @@
       <ul class="navbar-nav">
         <li class="nav-item">
         <?php
-          if (session_status() === PHP_SESSION_ACTIVE) {
+          if (isset($_SESSION['Account'])) {
 
             echo("
-            <a class='nav-link' href='../Controller/logout.php'>logout</a>
+            <a class='nav-link' href='../Controller/logout.php'>Sign out</a>
             ");
             //$nav->link("logout", "logoff.php");
 
@@ -20,7 +20,7 @@
           else{
 
             echo("
-            <a class='nav-link' href='../Views/login.php'>Log in</a>
+            <a class='nav-link' href='../Views/login.php'>Sign in</a>
             ");
             //$nav->link("logout", "logoff.php");
           }
@@ -60,6 +60,9 @@
 
 
           ?>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="../Views/Auctions">Auctions</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="#">Contact Us</a>
