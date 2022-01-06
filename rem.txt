@@ -2,9 +2,12 @@
 2-library done
 3-Auction
 4-Bid
-5-Strikes
+5-Strikes done
+
 6-reviews
 7-statistices
-8- deactivate and activate account
+8- deactivate and activate account done
 9- about
+ 
+
 10- 
