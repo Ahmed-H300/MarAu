@@ -34,22 +34,21 @@
         </li>
         <li class="nav-item">
           <?php
-          if (isset($_SESSION['Buyer'])) {
 
-            echo("
+          if (isset($_SESSION['Account']))
+          {
+            if(unserialize($_SESSION['Account'])->AccountType == 'Buyer')
+            {
+              echo("
             <a class='nav-link' href='../Views/My_Games'>MY Games</a>
             ");
-            //$nav->link("logout", "logoff.php");
-
-            
-          } else if (isset($_SESSION['Seller'])) {
-
-            echo("
-            <a class='nav-link' href='../Views/My_Games_Seller'>MY Games</a>
-            ");
-            //$nav->link("logout", "logoff.php");
-
-
+            }
+            else if(unserialize($_SESSION['Account'])->AccountType == 'Seller')
+            {
+              echo("
+              <a class='nav-link' href='../Views/My_Games_Seller'>MY Games</a>
+              ");
+            }
           }
           else
           {
@@ -57,15 +56,31 @@
             <a class='nav-link' href='../Views/Home.php'>Home</a>
             ");
           }
+          ?>
+        </li>
+        
+        <?php
+
+        if (isset($_SESSION['Account']))
+        {
+          if(unserialize($_SESSION['Account'])->AccountType == 'Seller')
+            {
+              echo("<li>
+              <a class='nav-link' href='../Views/Add_Game'>Add Game</a>
+              </li>
+              ");
+            }
+        }
+
 
 
           ?>
-        </li>
+
         <li class="nav-item">
           <a class="nav-link" href="../Views/Auctions">Auctions</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Contact Us</a>
+          <a class="nav-link" href="../Views/Contact">Contact Us</a>
         </li>
       </ul>
     </div>

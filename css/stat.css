@@ -1,0 +1,12 @@
+.title-stat
+{
+    margin: 100px;
+    text-align: center;
+    background-image: linear-gradient(to left, violet, indigo, green, orange, red);
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    font-size: 70px;
+    
+}
