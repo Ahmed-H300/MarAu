@@ -11,3 +11,8 @@
  
 
 10- 
+
+#detailed statistics
+1-every game details
+2-all accounts 
+3-all orders
