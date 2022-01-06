@@ -1,6 +1,6 @@
 .title-stat
 {
-    margin: 100px;
+    margin: 70px;
     text-align: center;
     background-image: linear-gradient(to left, violet, indigo, green, orange, red);
     -webkit-background-clip: text;
@@ -10,7 +10,15 @@
     font-size: 70px;
     
 }
-
+#chart-container {
+    width: 100%;
+    height: auto;
+}
+.details_stat {
+    font-size: 50px;
+    margin: 10px;
+    color: white;
+}
 
 
 
