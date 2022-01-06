@@ -7,5 +7,5 @@ $query = $connection->prepare("CALL Add_Bid (?,?,?);");
 $result = $query->execute([$_POST['BuyerId'], $_POST['AuctionId'], $amount]);
 var_dump($ID = $query->fetchObject());
 }
-
+header("Location: ../views/Auctions");
 ?>

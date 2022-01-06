@@ -15,4 +15,6 @@ class Auction {
     public int $HighestBidAmount;
     public ?string $HighestBidBuyerUserName;
     public ?string $HighestBidDate;
+
+    public int $Claimed=0;
 }
