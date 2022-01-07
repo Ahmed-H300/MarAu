@@ -28,7 +28,7 @@ include "../Controller/Select_Auctions.php";
             for ($x = 0; $x < count($Auctions); $x += 2) {
                 echo "<article class='postcard dark blue'>
                 <a class='postcard__img_link' href='#'>
-                <img class='postcard__img' src='../GamesImages/GameIcon." . $Auctions[$x]->GameId . ".jpg' alt='Image Title' />
+                <img class='postcard__img' src='../GamesImages/GameIcon" . $Auctions[$x]->GameId . "' alt='Image Title' />
                 </a>
                 <div class='postcard__text'>
                     <h1 class='postcard__title blue'><a href='#'>" . $Auctions[$x]->GameName . "</a></h1>
@@ -69,7 +69,7 @@ include "../Controller/Select_Auctions.php";
                 if (!empty($Auctions[$x + 1])) {
                     echo "<article class='postcard dark red'>
                 <a class='postcard__img_link' href='#'>
-                <img class='postcard__img' src='../GamesImages/GameIcon." . $Auctions[$x + 1]->GameId . ".jpg' alt='Image Title' />
+                <img class='postcard__img' src='../GamesImages/GameIcon" . $Auctions[$x + 1]->GameId . "' alt='Image Title' />
                 </a>
                 <div class='postcard__text'>
                     <h1 class='postcard__title red'><a href='#'>" . $Auctions[$x + 1]->GameName . "</a></h1>
