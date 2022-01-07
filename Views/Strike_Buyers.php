@@ -187,7 +187,7 @@ $reviews = unserialize($_SESSION['reviews']);
                         <td>$review->GameName</td>
                         <td>$review->BuyerUsername</td>
                         <td>$review->Text</td>
-                        <td><a class='btn btn-dark btn-sm' href='../Controller/strike_buyer.php?id=$review->BuyerId'>Strike</a></td>
+                        <td><a class='btn btn-dark btn-sm' href='../Controller/strike_buyer.php?BuyerId=$review->BuyerId&GameId=$review->GameId'>Strike</a></td>
                     </tr>";
                 }
                 ?>
