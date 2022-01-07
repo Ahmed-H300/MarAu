@@ -30,7 +30,7 @@
 
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="../Views/Account.php">MY Profile</a>
+          <a class="nav-link" href="../Views/Account.php">My Profile</a>
         </li>
         <li class="nav-item">
           <?php
@@ -40,13 +40,13 @@
             if(unserialize($_SESSION['Account'])->AccountType == 'Buyer')
             {
               echo("
-            <a class='nav-link' href='../Views/My_Games'>MY Games</a>
+            <a class='nav-link' href='../Views/My_Games'>My Games</a>
             ");
             }
             else if(unserialize($_SESSION['Account'])->AccountType == 'Seller')
             {
               echo("
-              <a class='nav-link' href='../Views/My_Games_Seller'>MY Games</a>
+              <a class='nav-link' href='../Views/My_Games_Seller'>My Games</a>
               ");
             }
           }

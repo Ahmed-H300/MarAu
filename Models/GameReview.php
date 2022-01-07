@@ -6,9 +6,9 @@ class GameReview
     public string $Name;
 
     public int $Buyerd; 
-    public string $BuyerName;
+    public string $BuyerUserName;
 
-    public int $Rating;
+    public float $Rating;
     public string $Text;
 
 }
