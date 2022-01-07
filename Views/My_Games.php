@@ -1,13 +1,6 @@
 <?php
 require '../Controller/AuthorizeBuyer.php';
-require '../Models/Buyer_Game.php';
-// session_start();
-// include '../Models/Account.php';
-if (!isset($_SESSION['Buyer_Game'])) {
-  
-} else $Games = unserialize($_SESSION['Buyer_Game']);
-//var_dump($Games);
-// $account
+require '../Controller/my_games_buyer.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">

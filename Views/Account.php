@@ -41,7 +41,8 @@ if (!isset($_SESSION['Account'])) {
                                     ?>
                                     <a class="btn" href="./EditAccount.php"><i class=" mdi mdi-square-edit-outline feather icon-edit m-t-10 f-16"></i></a>
                                     <?php if ($account->AccountType == "Moderator") echo "
-                                    <h5 class='f-w-600'><a class='btn btn-primary' href='../Controller/activate_account.php'>Activate Sellers/Buyers</a></h5>" ?>
+                                    <h5 class='f-w-600'><a class='btn btn-primary' href='../Controller/activate_account.php'>Activate Sellers/Buyers</a></h5> 
+                                    <h5 class='f-w-600'><a class='btn btn-primary' href='../Controller/strike_buyer.php'>Strike Buyers</a></h5>"?>
                                     <?php if ($account->AccountType == "Admin") echo "
                                     <h5 class='f-w-600'><a class='btn btn-primary' href='./Add_Moderator'>Add a New Moderator</a></h5>" ?>
                                     <h5 class="f-w-600"><a class="btn btn-warning text-danger" href="./changePassword.php">Change Password</a></h5>

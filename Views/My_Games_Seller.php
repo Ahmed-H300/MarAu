@@ -1,43 +1,33 @@
 <?php
 require '../Controller/AuthorizeSeller.php';
-require '../Models/Sellers_Games.php';
-// session_start();
-// include '../Models/Account.php';
-if (!isset($_SESSION['Seller_Game'])) {
-  
-} else $Games = unserialize($_SESSION['Seller_Game']);
-//var_dump($Games);
-// $account
+require '../Controller/my_games_seller.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
-    
+
 <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="../css/Home_style.css">
-    <title>MarAu </title>
-    <link href="../css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="../css/Home_style.css">
+  <title>MarAu </title>
+  <link href="../css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 </head>
 
 <body>
-  <?php  include ('nav.php') ?>
-    <!-- MY games -->
-    <h2 class="games-title" id="font-buyer">
-        My Games
-    </h2>
-    <section class="Games">
-          <?php
-            foreach ($Games as $Game) {
-            if($Game->Rating == null)
-              {
-                $Rating_string = '0';
-              }
-              else
-              {
-                $Rating_string = strval($Game->Rating);
-              }
-              echo "
+  <?php include('nav.php') ?>
+  <!-- MY games -->
+  <h2 class="games-title" id="font-buyer">
+    My Games
+  </h2>
+  <section class="Games">
+    <?php
+    foreach ($Games as $Game) {
+      if ($Game->Rating == null) {
+        $Rating_string = '0';
+      } else {
+        $Rating_string = strval($Game->Rating);
+      }
+      echo "
               <div class='Games-item'>
               <div style='background-image: url(../GamesImages/GameIcon$Game->GameId);' class='Games-item-image'></div>
               <p class='title'>
@@ -57,11 +47,12 @@ if (!isset($_SESSION['Seller_Game'])) {
           </p>
       </div>   
               ";
-            }
-              ?>
-    </section>
-<script src='../js/bootstrap.min.js'></script>
-<script src="../js/nav.js"></script>
+    }
+    ?>
+  </section>
+  <script src='../js/bootstrap.min.js'></script>
+  <script src="../js/nav.js"></script>
 
 </body>
+
 </html>

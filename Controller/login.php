@@ -2,8 +2,6 @@
 var_dump($_POST);
 ob_start();
 require "../Models/Account.php";
-require "../Models/Buyer_Game.php";
-require "../Models/Sellers_Games.php";
 if (!empty($_POST)) {
     $username = filter_var($_POST['username'], FILTER_SANITIZE_STRING); //
     $password = $_POST['password'];
@@ -25,21 +23,6 @@ if (!empty($_POST)) {
         if ($accounts[0]->Status == 1) {
             session_start();
             $_SESSION['Account'] = serialize($accounts[0]);
-
-            if ($accounts[0]->AccountType == 'Buyer') {
-                $selectgamesQuery = $connection->prepare("CALL Get_Buyer_Games (?);"); // for my games
-                var_dump($selectgamesQuery->execute([$accounts[0]->ID])); //
-                var_dump($Games = $selectgamesQuery->fetchAll(PDO::FETCH_CLASS, 'Buyer_Game'));
-
-                $_SESSION['Buyer_Game'] = serialize($Games);
-            } else if ($accounts[0]->AccountType == 'Seller') {
-                $selectgamesQuery = $connection->prepare("CALL Get_Seller_Games(?);"); // for my games
-                var_dump($selectgamesQuery->execute([$accounts[0]->ID])); //
-                var_dump($Games = $selectgamesQuery->fetchAll(PDO::FETCH_CLASS, 'Seller_Game'));
-
-                $_SESSION['Seller_Game'] = serialize($Games);
-            }
-
             header("Location: ../views/Account");
         } else header("Location: ../views/Deactivated.php");
     } else
