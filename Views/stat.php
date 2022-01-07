@@ -43,19 +43,19 @@
 
                     </li>
                     <?php
-                    echo("<li>
+                    echo ("<li>
                     <a class='nav-link' href='../Views/stat'>Statistics</a>
                     </li>
                     ");
-                    echo("<li>
+                    echo ("<li>
                       <a class='nav-link' href='../Views/All_Accounts'>All Accounts</a>
                       </li>
                       ");
-                      echo("<li>
+                    echo ("<li>
                       <a class='nav-link' href='../Views/All_Games'>All Games</a>
                       </li>
                       ");
-                      echo("<li>
+                    echo ("<li>
                       <a class='nav-link' href='../Views/All_Orders'>All Orders</a>
                       </li>
                       ");
@@ -117,29 +117,73 @@
             <canvas id="graphCanvas0">Stat</canvas>
         </div>
     </div>
-    <div id="chart-container" class="container mb-5">
-        <div class="row">
-            <div class="offset-1 col-sm-5" style='width:500px'>
-                <canvas id="graphCanvas1">Stat</canvas>
+    <h5 class='text-center title-stat' style='font-size:30px'>Total counts for Buyers Sellers Games</h2>
+        <div id="chart-container" class="container mt-5">
+            <div class="row">
+                <div class="offset-1 col-sm-5" style='width:500px'>
+                    <canvas id="graphCanvas1">Stat</canvas>
+                </div>
+                <div class="offset-1 col-sm-5" style='width:500px'>
+                    <canvas id="graphCanvas2">Stat</canvas>
+                </div>
+                <div></div>
             </div>
-            <div class="offset-1 col-sm-5" style='width:500px'>
-                <canvas id="graphCanvas2">Stat</canvas>
-            </div>
-            <div></div>
         </div>
-    </div>
-    <div id="chart-container" class="container mb-5">
-        <div class="row">
-            <div class="offset-1 col-sm-5" style='width:500px'>
-                <canvas id="graphCanvas3">Stat</canvas>
+        <div id="chart-container" class="container mb-5">
+            <div class="row">
+                <div class="offset-1 col-sm-5" style='width:500px'>
+                    <h5 class='text-center title-stat' style='font-size:30px'>Games Count According to Game Type</h5>
+                </div>
+                <div class="offset-1 col-sm-5" style='width:500px'>
+                    <h5 class='text-center title-stat' style='font-size:30px'>Games Count According to Seller</h5>
+                </div>
+                <div></div>
             </div>
-            <div class="offset-1 col-sm-5" style='width:500px'>
-                <canvas id="graphCanvas4">Stat</canvas>
-            </div>
-            <div></div>
         </div>
-    </div>
-
+        <div id="chart-container" class="container mt-5">
+            <div class="row">
+                <div class="offset-1 col-sm-5" style='width:500px'>
+                    <canvas id="graphCanvas3">Stat</canvas>
+                </div>
+                <div class="offset-1 col-sm-5" style='width:500px'>
+                    <canvas id="graphCanvas4">Stat</canvas>
+                </div>
+                <div></div>
+            </div>
+        </div>
+        <div id="chart-container" class="container mb-5">
+            <div class="row">
+                <div class="offset-1 col-sm-5" style='width:500px'>
+                    <h5 class='text-center title-stat' style='font-size:30px'>Orders Count For each Game</h5>
+                </div>
+                <div class="offset-1 col-sm-5" style='width:500px'>
+                    <h5 class='text-center title-stat' style='font-size:30px'>Bids Count For each Game</h5>
+                </div>
+                <div></div>
+            </div>
+        </div>
+        <div id="chart-container" class="container mt-5">
+            <div class="row">
+                <div class="offset-1 col-sm-5" style='width:500px'>
+                    <canvas id="graphCanvas5">Stat</canvas>
+                </div>
+                <div class="offset-1 col-sm-5" style='width:500px'>
+                    <canvas id="graphCanvas6">Stat</canvas>
+                </div>
+                <div></div>
+            </div>
+        </div>
+        <div id="chart-container" class="container mb-5">
+            <div class="row">
+                <div class="offset-1 col-sm-5" style='width:500px'>
+                    <h5 class='text-center title-stat' style='font-size:30px'>Countries Count</h5>
+                </div>
+                <div class="offset-1 col-sm-5" style='width:500px'>
+                    <h5 class='text-center title-stat' style='font-size:30px'>Account Status</h5></h5>
+                </div>
+                <div></div>
+            </div>
+        </div>
 
 </body>
 <script src='../js/bootstrap.min.js'></script>
@@ -152,8 +196,9 @@
         showGraph1();
         showGraph2();
         showGraph3();
-        // showGraph4(); -> Active
         showGraph4();
+        showGraph5();
+        showGraph6();
     });
     const COLORS = [
         '#4dc9f6',
@@ -368,6 +413,91 @@
                     };
 
                     var graphTarget = $("#graphCanvas4");
+
+                    var barGraph = new Chart(graphTarget, {
+                        type: 'doughnut',
+                        data: chartdata,
+                        options: {
+                            legend: {
+                                labels: {
+                                    fontColor: 'red'
+                                }
+                            },
+                            responsive: true
+                        }
+                    });
+                });
+        }
+    }
+
+    function showGraph5() {
+        {
+            $.post("../controller/get_all_countries.php",
+                function(data) {
+                    console.log(data);
+                    var name = [];
+                    var marks = [];
+
+                    for (var i in data) {
+                        name.push(data[i].country);
+                        marks.push(data[i].Count);
+                    }
+
+                    var chartdata = {
+                        labels: name,
+                        datasets: [{
+                            label: 'Count',
+                            backgroundColor: COLORS,
+                            borderColor: '#ffffff',
+                            hoverBackgroundColor: '#ff006f',
+                            hoverBorderColor: '#666666',
+                            data: marks
+                        }]
+                    };
+
+                    var graphTarget = $("#graphCanvas5");
+
+                    var barGraph = new Chart(graphTarget, {
+                        type: 'doughnut',
+                        data: chartdata,
+                        options: {
+                            legend: {
+                                labels: {
+                                    fontColor: 'red'
+                                }
+                            },
+                            responsive: true
+                        }
+                    });
+                });
+        }
+    }
+
+    function showGraph6() {
+        {
+            $.post("../controller/get_all_status.php",
+                function(data) {
+                    console.log(data);
+                    var name = ['Activated', 'Deactivated'];
+                    var marks = [];
+
+                    for (var i in data) {
+                        marks.push(data[i].Count);
+                    }
+
+                    var chartdata = {
+                        labels: name,
+                        datasets: [{
+                            label: 'Count',
+                            backgroundColor: COLORS,
+                            borderColor: '#ffffff',
+                            hoverBackgroundColor: '#ff006f',
+                            hoverBorderColor: '#666666',
+                            data: marks
+                        }]
+                    };
+
+                    var graphTarget = $("#graphCanvas6");
 
                     var barGraph = new Chart(graphTarget, {
                         type: 'doughnut',

@@ -21,8 +21,8 @@ else
    <?php include('nav.php') ?>
    <section class="dark">
        <h1 class="text-center">All Games</h1>
-       <table class="table text-light">
-            <thead>
+       <table class="table table-striped table-light table-hover">
+            <thead class="thead-light">
                 <tr>
                     <th>Username</th>
                     <th>Name</th>

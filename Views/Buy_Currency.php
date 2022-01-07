@@ -16,17 +16,7 @@
 
 <body>
   <!-- Nav Bar Section -->
-  <nav class="navbar navbar-expand-lg navbar-light ">
-    <div class="offset-sm-1 container-fluid">
-      <a class="navbar-brand" href="https://marau.demosfortest.com/"><img src='../img/logo.png' width="70" height="70"></a>
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item">
-          <a class="nav-link active nav-name text-white" aria-current="page" href="#1">MarAu | Add Currency</a>
-        </li>
-      </ul>
-    </div>
-  </nav>
-
+  <?php include('nav.php') ?>
 
   <div class="container">
 
