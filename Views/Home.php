@@ -77,6 +77,9 @@
               ";
             }
               ?>
+          <a href='../Views/Library.php'>
+          <button>All Games</button>
+          </a>
     </section>
 <script src='../js/bootstrap.min.js'></script>
 <script src="../js/nav.js"></script>
