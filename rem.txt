@@ -1,18 +1,18 @@
 1-home done
 2-library done
-3-Auction
-4-Bid
+3-Auction done
+4-Bid done
 5-Strikes done
 
-6-reviews
+6-reviews ---------------------------
 7-statistices done
 8- deactivate and activate account done
-9- about 
+9- about done
  
 
 10- 
 
-#detailed statistics
-1-every game details
-2-all accounts 
-3-all orders
+#detailed statistics done
+1-every game details done
+2-all accounts  done 
+3-all orders done
