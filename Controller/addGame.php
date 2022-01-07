@@ -23,7 +23,7 @@ if (!empty($_POST)) {
     
     var_dump($newGameId = $insertQuery->fetch()['ID']);
     var_dump($_FILES);
-    $target_dir = "GamesImages/";
+    $target_dir = "../GamesImages/";
     $target_file = $target_dir . basename($_FILES["gameimg"]["name"]);
     $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
     $target_path = $target_dir . "GameIcon" . $newGameId . "." . $imageFileType;
