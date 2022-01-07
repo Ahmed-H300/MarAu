@@ -66,7 +66,7 @@ if (!isset($_SESSION['Account'])) {
                <ul class="postcard__tagbox">
                   <li class="tag__item"><i class="fas fa-tag mr-2"></i><?= $game->Type ?></li>
                   <li class="tag__item"><i class="fas fa-clock mr-2"></i>Rating: <?= $game->Rating ?? '0' ?> Stars</li>
-                  <li class="tag__item"><i class="fas fa-clock mr-2"></i>First Owener: <?= $game->FirstOwner ?? 'Not Yet, May be it is you !' ?></li>
+                  <li class="tag__item"><i class="fas fa-clock mr-2"></i>First Owener: <?= $game->FirstOwnerName ?? 'Not Yet, May be it is you !' ?></li>
                   <li class="tag__item"><i class="fas fa-clock mr-2"></i>Price: <?= $game->Price ?></li>
                   <li class="tag__item play green">
                      <!-- Href to buy it -->
