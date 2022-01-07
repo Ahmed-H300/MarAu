@@ -16,3 +16,11 @@
 1-every game details done
 2-all accounts  done 
 3-all orders done
+
+
+--------------------------
+
+reviews
+buy game many times
+update balance in session after buying
+requirments -> to acces the page
