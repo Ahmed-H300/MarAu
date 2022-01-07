@@ -58,6 +58,24 @@
           }
           ?>
         </li>
+        
+        <?php
+
+        if (isset($_SESSION['Account']))
+        {
+          if(unserialize($_SESSION['Account'])->AccountType == 'Seller')
+            {
+              echo("<li>
+              <a class='nav-link' href='../Views/Add_Game'>Add Game</a>
+              </li>
+              ");
+            }
+        }
+
+
+
+          ?>
+
         <li class="nav-item">
           <a class="nav-link" href="../Views/Auctions">Auctions</a>
         </li>

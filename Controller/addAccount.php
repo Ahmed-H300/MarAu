@@ -1,6 +1,6 @@
 <?php
 var_dump($_POST);
-//ob_start();
+ob_start();
 if (!empty($_POST)) {
     $username = filter_var($_POST['username'], FILTER_SANITIZE_STRING); //
     $fName = filter_var($_POST['fName'], FILTER_SANITIZE_STRING); //

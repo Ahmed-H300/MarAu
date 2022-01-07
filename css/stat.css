@@ -1,0 +1,58 @@
+.title-stat
+{
+    margin: 70px;
+    text-align: center;
+    background-image: linear-gradient(to left, violet, indigo, green, orange, red);
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    font-size: 70px;
+    
+}
+#chart-container {
+    width: 100%;
+    height: auto;
+}
+.details_stat {
+    font-size: 50px;
+    margin: 10px;
+    color: white;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* SCROLLBAR */
+/* width */
+::-webkit-scrollbar {
+    width: 5px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: #f1f1f1;
+  }
+  
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: rgb(57, 57, 57);
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgb(32, 32, 32);
+  }

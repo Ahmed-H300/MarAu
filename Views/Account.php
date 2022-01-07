@@ -21,7 +21,7 @@ if (!isset($_SESSION['Account'])) {
 ?>
 
 <body>
-<?php  include ('nav.php') ?>
+    <?php include('nav.php') ?>
     <div class="page-content page-container" id="page-content">
         <div class="padding">
             <div class="row container d-flex justify-content-center">
@@ -40,10 +40,11 @@ if (!isset($_SESSION['Account'])) {
                                         echo "<p>Account Is Not Activated</p>";
                                     ?>
                                     <a class="btn" href="./EditAccount.php"><i class=" mdi mdi-square-edit-outline feather icon-edit m-t-10 f-16"></i></a>
-                                    <?php if($account->AccountType=="Moderator") echo"
-                                    <h5 class='f-w-600'><a class='btn btn-primary' href='../Controller/activate_account.php'>Activate Sellers/Buyers</a></h5>"?>
-                                    <?php if($account->AccountType=="Admin") echo"
-                                    <h5 class='f-w-600'><a class='btn btn-primary' href='./Add_Moderator'>Add a New Moderator</a></h5>"?>
+                                    <?php if ($account->AccountType == "Moderator") echo "
+                                    <h5 class='f-w-600'><a class='btn btn-primary' href='../Controller/activate_account.php'>Activate Sellers/Buyers</a></h5>" ?>
+                                    <?php if ($account->AccountType == "Admin") echo "
+                                    <h5 class='f-w-600'><a class='btn btn-primary' href='./Add_Moderator'>Add a New Moderator</a></h5>" ?>
+                                    <h5 class="f-w-600"><a class="btn btn-warning text-danger" href="./changePassword.php">Change Password</a></h5>
                                     <h5 class="f-w-600"><a class="btn btn-danger" href="../Controller/logout.php">log out</a></h5>
                                 </div>
                             </div>
