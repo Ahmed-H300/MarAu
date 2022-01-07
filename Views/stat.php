@@ -42,6 +42,25 @@
                         ?>
 
                     </li>
+                    <?php
+                    echo("<li>
+                    <a class='nav-link' href='../Views/stat'>Statistics</a>
+                    </li>
+                    ");
+                    echo("<li>
+                      <a class='nav-link' href='../Views/All_Accounts'>All Accounts</a>
+                      </li>
+                      ");
+                      echo("<li>
+                      <a class='nav-link' href='../Views/All_Games'>All Games</a>
+                      </li>
+                      ");
+                      echo("<li>
+                      <a class='nav-link' href='../Views/All_Orders'>All Orders</a>
+                      </li>
+                      ");
+
+                    ?>
                     <li class="nav-item">
                         <a class="nav-link" href="../Views/Account.php">MY Profile</a>
                     </li>

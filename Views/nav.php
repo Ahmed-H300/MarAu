@@ -79,6 +79,31 @@
         <li class="nav-item">
           <a class="nav-link" href="../Views/Auctions">Auctions</a>
         </li>
+        
+        <?php
+        if (isset($_SESSION['Account']))
+        {
+          if(unserialize($_SESSION['Account'])->AccountType == 'Admin')
+          {
+            echo("<li>
+            <a class='nav-link' href='../Views/stat'>Statistics</a>
+            </li>
+            ");
+            echo("<li>
+              <a class='nav-link' href='../Views/All_Accounts'>All Accounts</a>
+              </li>
+              ");
+              echo("<li>
+              <a class='nav-link' href='../Views/All_Games'>All Games</a>
+              </li>
+              ");
+              echo("<li>
+              <a class='nav-link' href='../Views/All_Orders'>All Orders</a>
+              </li>
+              ");
+          }
+        }
+        ?>
         <li class="nav-item">
           <a class="nav-link" href="../Views/Contact">Contact Us</a>
         </li>
