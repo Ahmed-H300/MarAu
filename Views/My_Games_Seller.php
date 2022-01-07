@@ -27,6 +27,10 @@ require '../Controller/my_games_seller.php';
       } else {
         $Rating_string = strval($Game->Rating);
       }
+              $myfile = fopen("../Games_download/$Game->GameId.txt", "w");
+              $hashed_game = password_hash($Game->GameId, PASSWORD_DEFAULT);
+              fwrite($myfile, $hashed_game);
+              fclose($myfile);
       echo "
               <div class='Games-item'>
               <div style='background-image: url(../GamesImages/GameIcon$Game->GameId);' class='Games-item-image'></div>
