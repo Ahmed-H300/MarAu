@@ -1,6 +1,8 @@
 <?php
     require "../Controller/get_top_three_games.php";
+    require "../Models/Account.php";
     //var_dump($games_seller);
+    session_start();
     if(isset($games) == false || isset($heighest_game) == false)
     {
         header("Location: ../views/Not_Found.php");
