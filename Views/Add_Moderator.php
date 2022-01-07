@@ -96,7 +96,7 @@ if (isset($_SESSION['Account'])&&unserialize($_SESSION['Account'])->AccountType!
                             <div class="mb-3">
                                 <input type="password" class="form-control" id="confirmPassword" placeholder="Confirm Password"></input>
                                 <p class="hide text-danger" id='confirmPasswordError'>Password Doesn't Match</p>
-                                <input class="form-control"  name='AddedById' style='display:none;' value="<?=unserialize($_SESSION['Account'])->AccountId?>"></input>
+                                <input class="form-control"  name='AddedById' style='display:none;' value="<?=unserialize($_SESSION['Account'])->ID?>"></input>
                             </div>
 
                             <div class="d-flex justify-content-between">

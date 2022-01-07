@@ -1,10 +1,10 @@
 <?php
 session_start();
 include '../Models/Account.php';
-if (isset($_SESSION['Account']) && unserialize($_SESSION['Account'])->AccountType != "Moderator") {
+if (isset($_SESSION['Account']) && unserialize($_SESSION['Account'])->AccountType != "Admin") {
     header("Location: ../views/Account");
 }
-$accounts = unserialize($_SESSION['accounts']);
+include '../Controller/allOrders.php';
 ?>
 <!DOCTYPE html>
 
@@ -168,27 +168,27 @@ $accounts = unserialize($_SESSION['accounts']);
 
 <body>
     <?php include('nav.php') ?>
-    <h2><a class="btn text-white" href="../Controller/activate_account.php">Pending Accounts</a></h2>
+    <h2>All Games Orders</h2>
     <div class="table-wrapper">
         <table class="fl-table">
             <thead>
                 <tr>
-                    <th>Account ID</th>
-                    <th>Account Type</th>
-                    <th>Username</th>
-                    <th>EmailAddress</th>
-                    <th>Action</th>
+                    <th>OrderDate</th>
+                    <th>Buyer</th>
+                    <th>Seller</th>
+                    <th>Game</th>
+                    <th>PaidAmount</th>
                 </tr>
             </thead>
             <tbody>
                 <?php
-                foreach ($accounts as $account) {
+                foreach ($orders as $order) {
                     echo "<tr>
-                        <td>$account->AccountId</td>
-                        <td>$account->AccountType</td>
-                        <td>$account->Username</td>
-                        <td>$account->EmailAddress</td>
-                        <td><a class='btn btn-dark btn-sm' href='../Controller/activate_account.php?id=$account->AccountId'>Approve</a></td>
+                        <td>$order->OrderDate</td>
+                        <td>$order->Buyer</td>
+                        <td>$order->Seller</td>
+                        <td>$order->Game</td>
+                        <td>$order->PaidAmount</td>
                     </tr>";
                 }
                 ?>

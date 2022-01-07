@@ -12,7 +12,7 @@ body{
 }
 </style>
 <div style="color:white; font-size: 50px;" class ='text-center'>
-Account is Deactivated Contact Support<br> ابلع ينرم
+Account is Deactivated Contact Support
 </div>
 <body>
 </body>

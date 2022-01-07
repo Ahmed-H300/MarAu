@@ -7,5 +7,5 @@ $query = $connection->prepare("CALL ClaimGame (?);");
 $result = $query->execute([$_GET['id']]);
 var_dump($ID = $query->fetchObject());
 }
-// header("Location: ../views/Auctions");
+header("Location: ../views/Auctions");
 ?>

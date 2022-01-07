@@ -43,7 +43,7 @@ if (!empty($_POST)) {
             header("Location: ../views/Account");
         } else header("Location: ../views/Deactivated.php");
     } else
-        header("Location: ../views/login.php");
+        header("Location: ../views/login?error=1");
 
     //test is username kotp123 password passowrd
 } else {

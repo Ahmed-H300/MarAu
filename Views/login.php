@@ -49,6 +49,9 @@ if (isset($_SESSION['Account'])) {
                     <form id="formBox" method="POST" action="../Controller/login.php">
                         <div class="mb-3">
                             <input class="form-control" name='username' id="username" placeholder="Username"></input>
+                            <?php if(isset($_GET['error']))
+                            echo"<p class=' text-danger'>Wrong Username or Password!</p>";
+                            ?>
                             <p class="hide text-danger" id='usernameError'>This field is required</p>
                         </div>
                         <div class="mb-3">

@@ -12,7 +12,7 @@
 <?php
 session_start();
 include '../Models/Account.php';
-if (!isset($_SESSION['Account']) || unserialize($_SESSION['Account'])->AccountType != "Buyer") {
+if (!isset($_SESSION['Account'])) {
     header("Location: ../views/login");
 } else $account = unserialize($_SESSION['Account']);
 include "../Controller/Select_Auctions.php";
@@ -45,7 +45,7 @@ include "../Controller/Select_Auctions.php";
                     <input type='text' class='form-controls' style='display:none;' name='BuyerId' value='" . $account->ID . "' ></input>
 
                     <li class='tag__item'><i class='fas fa-clock mr-2'></i>Highest: " . $Auctions[$x]->HighestBidAmount . "</li>";
-                if ($Auctions[$x]->Status == 1)
+                if ($Auctions[$x]->Status == 1&&$account->AccountType=="Buyer"&&$account->ID!=$Auctions[$x]->HighestBidBuyerId)
                     echo "<li class='tag__item'><i class='fas fa-clock mr-2'></i>Time Left: " . intval(((strtotime($Auctions[$x]->EndDate) - strtotime('now')) / 60)) . "  Minutes</li>
                     <li class='tag__item'><input type='text' name='Amount' class='form-controls'  placeholder='Amount' ></input></li>
                     <li class='tag__item play blue'>
@@ -86,7 +86,7 @@ include "../Controller/Select_Auctions.php";
                     <input type='text' class='form-controls' style='display:none;' name='BuyerId' value='" . $account->ID . "' ></input>
 
                     <li class='tag__item'><i class='fas fa-clock mr-2'></i>Highest: " . $Auctions[$x + 1]->HighestBidAmount . "</li>";
-                    if ($Auctions[$x + 1]->Status == 1)
+                    if ($Auctions[$x + 1]->Status == 1&&$account->AccountType=="Buyer"&&$account->ID!=$Auctions[$x + 1]->HighestBidBuyerId)
                         echo "<li class='tag__item'><i class='fas fa-clock mr-2'></i>Time Left: " . intval(((strtotime($Auctions[$x + 1]->EndDate) - strtotime('now')) / 60)) . "  Minutes</li>
                     <li class='tag__item'><input type='text' name='Amount' class='form-controls'  placeholder='Amount' ></input></li>
                     <li class='tag__item play red'>

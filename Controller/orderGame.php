@@ -9,5 +9,5 @@ var_dump($insertQuery);
 var_dump([$buyerId, $gameId]);
 var_dump($insertQuery->execute([$buyerId, $gameId]));
 var_dump($result = $insertQuery->fetch()['ID']);
-//header("Location: ../views/Account");
+header("Location: ../views/Account");
 ?>
