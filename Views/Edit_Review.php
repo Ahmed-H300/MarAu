@@ -51,7 +51,7 @@
 
               <div class="mb-3">
                 <input type="number" step="0.01" class="form-control" id="Rating"  value="<?= $review->Rating ?>" name="Rating" placeholder="Rating"></input>
-                <p class="hide text-danger" id='RatingError'>This field is required and Less Than 10</p>
+                <p class="hide text-danger" id='RatingError'>This field is required and Less Than 10 or above 0</p>
               </div>
 
               <div class="d-flex justify-content-between">
@@ -93,7 +93,7 @@
       else 
         TextError.classList.add("hide");
 
-      if (Rating.value === "" || Rating.value === null || Rating.value > 10) {
+      if (Rating.value === "" || Rating.value === null || Rating.value > 10||Rating.value < 0) {
         flag = false;
         RatingError.classList.remove("hide");
       } 

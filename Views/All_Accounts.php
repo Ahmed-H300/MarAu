@@ -20,7 +20,7 @@ else
 <body class="dark">
    <?php include('nav.php') ?>
    <section class="dark">
-       <h1 class="text-center">All Games</h1>
+       <h1 class="text-center">All Accounts</h1>
        <table class="table table-striped table-light table-hover">
             <thead class="thead-light">
                 <tr>

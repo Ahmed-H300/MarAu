@@ -22,6 +22,8 @@ if (empty($_GET)) {
 } else {
     var_dump($updateQuery = $connection->prepare("CALL SET_ACCOUNT_STATUS(?,?)")); //
     var_dump($updateQuery->execute([$_GET['id'],1]));
+    var_dump($updateQuery = $connection->prepare("CALL 	Approved_By(?,?)")); //
+    var_dump($updateQuery->execute([$_GET['id'],$_GET['modId']]));
     header("Location: activate_account.php");
 }
 ob_end_clean();

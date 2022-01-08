@@ -188,7 +188,7 @@ $accounts = unserialize($_SESSION['accounts']);
                         <td>$account->AccountType</td>
                         <td>$account->Username</td>
                         <td>$account->EmailAddress</td>
-                        <td><a class='btn btn-dark btn-sm' href='../Controller/activate_account.php?id=$account->AccountId'>Approve</a></td>
+                        <td><a class='btn btn-dark btn-sm' href='../Controller/activate_account.php?id=$account->AccountId&modId=".unserialize($_SESSION['Account'])->ID."'>Approve</a></td>
                     </tr>";
                 }
                 ?>

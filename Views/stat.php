@@ -1,6 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
-
+<?php
+session_start();
+include '../Models/Account.php';
+if (isset($_SESSION['Account']) && unserialize($_SESSION['Account'])->AccountType != "Admin") {
+    header("Location: ../views/Account");
+}
+?>
 
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -42,27 +48,8 @@
                         ?>
 
                     </li>
-                    <?php
-                    echo ("<li>
-                    <a class='nav-link' href='../Views/stat'>Statistics</a>
-                    </li>
-                    ");
-                    echo ("<li>
-                      <a class='nav-link' href='../Views/All_Accounts'>All Accounts</a>
-                      </li>
-                      ");
-                    echo ("<li>
-                      <a class='nav-link' href='../Views/All_Games'>All Games</a>
-                      </li>
-                      ");
-                    echo ("<li>
-                      <a class='nav-link' href='../Views/All_Orders'>All Orders</a>
-                      </li>
-                      ");
-
-                    ?>
                     <li class="nav-item">
-                        <a class="nav-link" href="../Views/Account.php">MY Profile</a>
+                        <a class="nav-link" href="../Views/Account.php">My Profile</a>
                     </li>
                     <li class="nav-item">
                         <?php
@@ -70,11 +57,11 @@
                         if (isset($_SESSION['Account'])) {
                             if (unserialize($_SESSION['Account'])->AccountType == 'Buyer') {
                                 echo ("
-            <a class='nav-link' href='../Views/My_Games'>MY Games</a>
+            <a class='nav-link' href='../Views/My_Games'>My Games</a>
             ");
                             } else if (unserialize($_SESSION['Account'])->AccountType == 'Seller') {
                                 echo ("
-              <a class='nav-link' href='../Views/My_Games_Seller'>MY Games</a>
+              <a class='nav-link' href='../Views/My_Games_Seller'>My Games</a>
               ");
                             }
                         } else {
@@ -103,6 +90,29 @@
                     <li class="nav-item">
                         <a class="nav-link" href="../Views/Auctions">Auctions</a>
                     </li>
+
+                    <?php
+                    if (isset($_SESSION['Account'])) {
+                        if (unserialize($_SESSION['Account'])->AccountType == 'Admin') {
+                            echo ("<li>
+            <a class='nav-link' href='../Views/stat'>Statistics</a>
+            </li>
+            ");
+                            echo ("<li>
+              <a class='nav-link' href='../Views/All_Accounts'>All Accounts</a>
+              </li>
+              ");
+                            echo ("<li>
+              <a class='nav-link' href='../Views/All_Games'>All Games</a>
+              </li>
+              ");
+                            echo ("<li>
+              <a class='nav-link' href='../Views/All_Orders'>All Orders</a>
+              </li>
+              ");
+                        }
+                    }
+                    ?>
                     <li class="nav-item">
                         <a class="nav-link" href="../Views/Contact">Contact Us</a>
                     </li>
@@ -179,11 +189,12 @@
                     <h5 class='text-center title-stat' style='font-size:30px'>Countries Count</h5>
                 </div>
                 <div class="offset-1 col-sm-5" style='width:500px'>
-                    <h5 class='text-center title-stat' style='font-size:30px'>Account Status</h5></h5>
-                </div>
-                <div></div>
-            </div>
-        </div>
+                    <h5 class='text-center title-stat' style='font-size:30px'>Account Status</h5>
+    </h5>
+    </div>
+    <div></div>
+    </div>
+    </div>
 
 </body>
 <script src='../js/bootstrap.min.js'></script>
