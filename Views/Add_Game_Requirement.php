@@ -4,6 +4,11 @@
     header("Location: ../Views/Not_Found.php");
   }
   $gameId = $_GET['id'];
+  require "../Controller/getGame.php";
+  if(!empty($game)&&!empty($game->OperatingSystem)){
+    header("Location: ../views/Edit_Game_Requirement?id=$gameId");
+
+  }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -71,7 +76,7 @@
 
               <div class="mb-3">
                 <input type="number" class="form-control" id="MinimumRam" name="MinimumRam" placeholder="Minimum Ram"></input>
-                <p class="hide text-danger" id='saleError'>This field is required</p>
+                <p class="hide text-danger" id='MinimumRamError'>This field is required</p>
               </div>      
               
               <div class="mb-3">
@@ -95,7 +100,7 @@
   </div>
 
 </body>
-<script src='./js/bootstrap.min.js'></script>
+<script src='../js/bootstrap.min.js'></script>
 <script>
   form = document.getElementById("formBox");
   //inputs

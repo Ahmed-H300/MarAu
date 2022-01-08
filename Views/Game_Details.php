@@ -68,19 +68,28 @@ if (!isset($_SESSION['Account'])) {
                   <li class="tag__item"><i class="fas fa-clock mr-2"></i>Rating: <?= $game->Rating ?? '0' ?> Stars</li>
                   <li class="tag__item"><i class="fas fa-clock mr-2"></i>First Owener: <?= $game->FirstOwnerName ?? 'Not Yet, May be it is you !' ?></li>
                   <li class="tag__item"><i class="fas fa-clock mr-2"></i>Price: <?= $game->Price ?></li>
-                  <li class="tag__item play green">
+                  <?php 
+                  echo"<li class='tag__item play yellow'><a href='Game_Reviews?id=$game->GameId' class='fas fa-tag mr-2'>View Reviews</a></li>";
+                  if($account->AccountType=="Buyer")
+                  echo"<li class='tag__item play blue'><a href='Add_review?id=$game->GameId' class='fas fa-tag mr-2'>Add Review</a></li>";
+                  ?>
+                  <li class="tag__item play green" <?php if($account->AccountType!="Buyer") echo"style='display: none;" ?>>
                      <!-- Href to buy it -->
                      <form id="form1" method="POST" action="../Controller/orderGame.php">
                         <input type="hidden" value="<?= $game->GameId ?>" name="gameId" id="gameId"></input>
-                        <a href="#" onclick="document.getElementById('form1').submit();"><i class="fas fa-play mr-2"></i>
+                        <input type="hidden" value="<?= $game->Price ?>" name="price"></input>
+                        <a href="#" onclick="document.getElementById('form1').submit();">
                            Buy Now!
                         </a>
                      </form>
                   </li>
                   <?php
                   if ($account->AccountType == "Moderator")
-                     echo "<li class='tag__item play red'><a href='../Controller/strike.php?id=$game->SellerId&gameid=$game->GameId'>Strike " . $game->SellerName . "</a></li>"
+                     echo "<li class='tag__item play red'><a href='../Controller/strike.php?id=$game->SellerId&gameid=$game->GameId'>Strike " . $game->SellerName . "</a></li>";
+                  if ($account->AccountType == "Seller"&&$game->SellerId==$account->ID)
+                     echo "<li class='tag__item play red'><a href='Add_Game_Requirement?id=$game->GameId'>Add Requirements</a></li>";
                   ?>
+                  
                </ul>
             </div>
          </article>

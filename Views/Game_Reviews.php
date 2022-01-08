@@ -29,7 +29,13 @@ else
 <body class="dark">
    <?php include('nav.php') ?>
    <section class="dark">
-       <h1 class="text-center">Game Reviews</h1>
+      <?php 
+      if(!empty($reviews))
+      echo"<h1 class='text-center'>".$reviews[0]->Name." Reviews</h1>";
+      else
+      echo"<h1 class='text-center'>There is No Reviews for this Game Yet!</h1>";
+      ?>
+       
        <?php 
         foreach($reviews as $review){
             require "./SingleReview.php";

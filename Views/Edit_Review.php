@@ -1,7 +1,7 @@
 <?php 
   if(isset($_GET['id']) == false)
   {
-    header("Location: ../views/Not_Foound.php");
+    header("Location: ../views/Not_Found.php");
   }
   $GameId = $_GET['id'];
   require "../Controller/getReview.php";

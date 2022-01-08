@@ -8,6 +8,7 @@ $query = $connection->prepare("SELECT * FROM games_reviews_details WHERE GameId 
 $result = $query->execute([$_GET['id'], $account->ID]);
 
 $reviews = $query->fetchAll(PDO::FETCH_CLASS, 'GameReview');
+if(!empty($reviews))
 $review = $reviews[0];
 
 ?>
