@@ -20,6 +20,7 @@ class Game
 
     public ?int $FirstOwner;
     public ?string $FirstOwnerName;
+    public ?string $CanBeBought;
 
     public ?string $OperatingSystem;
     public ?string $MinimumCPU;

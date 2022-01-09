@@ -73,8 +73,7 @@ if (!isset($_SESSION['Account'])) {
                   if ($account->AccountType == "Buyer")
                      echo "<li class='tag__item play blue'><a href='Add_review?id=$game->GameId' class='fas fa-tag mr-2'>Add Review</a></li>";
                   ?>
-                  <li class="tag__item play green" <?php if ($account->AccountType != "Buyer") echo "style='display: none;" ?>>
-                     <!-- Href to buy it -->
+                  <li class="tag__item play green" <?php if ($account->AccountType != "Buyer" || ($game->CanBeBought == 0)) echo "style='display: none;" ?>>
                      <form id="form1" method="POST" action="../Controller/orderGame.php">
                         <input type="hidden" value="<?= $game->GameId ?>" name="gameId" id="gameId"></input>
                         <input type="hidden" value="<?= $game->Price ?>" name="price"></input>
@@ -87,11 +86,10 @@ if (!isset($_SESSION['Account'])) {
                   if ($account->AccountType == "Moderator")
                      echo "<li class='tag__item play red'><a href='../Controller/strike.php?id=$game->SellerId&gameid=$game->GameId'>Strike " . $game->SellerName . "</a></li>";
                   if ($account->AccountType == "Seller" && $game->SellerId == $account->ID) {
-                     if(!isset($game->OperatingSystem))
-                     echo "<li class='tag__item play red'><a href='Add_Game_Requirement?id=$game->GameId'>Add Requirements</a></li>";
+                     if (!isset($game->OperatingSystem))
+                        echo "<li class='tag__item play red'><a href='Add_Game_Requirement?id=$game->GameId'>Add Requirements</a></li>";
                      else
-                     echo "<li class='tag__item play red'><a href='Add_Game_Requirement?id=$game->GameId'>Edit Requirements</a></li>";
-
+                        echo "<li class='tag__item play red'><a href='Add_Game_Requirement?id=$game->GameId'>Edit Requirements</a></li>";
                   } ?>
 
                </ul>
