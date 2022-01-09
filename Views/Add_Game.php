@@ -50,17 +50,17 @@
 
               <div class="mb-3">
                 <input class="form-control" id="version" name="version" placeholder="Version"></input>
-                <p class="hide text-danger" id='versionError'>This field is required</p>
+                <p class="hide text-danger" id='versionError'>This field is required and must be positive</p>
               </div>    
 
               <div class="mb-3">
                 <input type="number" class="form-control" id="price" name="price" placeholder="Price"></input>
-                <p class="hide text-danger" id='priceError'>This field is required</p>
+                <p class="hide text-danger" id='priceError'>This field is required and must be positive</p>
               </div>  
 
               <div class="mb-3">
                 <input type="number" class="form-control" id="sale" name="sale" placeholder="Initial Sale"></input>
-                <p class="hide text-danger" id='saleError'>This field is required</p>
+                <p class="hide text-danger" id='saleError'>This field is required from 0 to 100</p>
               </div>      
 
               <div class="mb-3">
@@ -159,19 +159,19 @@
       else 
         typeError.classList.add("hide");
 
-      if (sale.value === "" || price.value === null) {
+      if (sale.value === "" || price.value === null||sale.value<0||sale.value>100) {
         flag = false;
         saleError.classList.remove("hide");
       } 
       else 
         saleError.classList.add("hide");
 
-      if (price.value === "" || price.value === null) {
+      if (price.value === "" || price.value === null||price.value<0) {
         flag = false;
         priceError.classList.remove("hide");
       } else priceError.classList.add("hide");
 
-      if(version.value === "" || version.value === null) {
+      if(version.value === "" || version.value === null||version.value<0) {
         flag = false;
         versionError.classList.remove("hide");
       } else versionError.classList.add("hide");
