@@ -1,6 +1,6 @@
-<?php 
-  require "../Controller/AuthorizeSeller.php";
-  require "../Controller/getGame.php";
+<?php
+require "../Controller/AuthorizeSeller.php";
+require "../Controller/getGame.php";
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -17,7 +17,7 @@
 
 <body>
   <!-- Nav Bar Section -->
-  <?php  include ('nav.php') ?>
+  <?php include('nav.php') ?>
   <!-- <nav class="navbar navbar-expand-lg navbar-light ">
     <div class="offset-sm-1 container-fluid">
       <a class="navbar-brand" href="https://marau.demosfortest.com/"><img src='../img/logo.png' width="70" height="70"></a>
@@ -34,71 +34,73 @@
 
     <div class="row align-items-left container-form" id="formBox">
       <div class="col-lg-12">
-          <form id="formBox" method="POST" action="../Controller/editGame.php" enctype="multipart/form-data">
-            <div id="1">
-              
-              <h1>Edit Game</h1>
-              
-              <input type="hidden" id="gameId" name="gameId" value="<?= $game->GameId ?>"></input>
+        <form id="formBox" method="POST" action="../Controller/editGame.php" enctype="multipart/form-data">
+          <div id="1">
 
-              <div class="mb-3">
-                <input type="text" class="form-control" id="gamename"  value="<?= $game->Name ?>" name="gamename" placeholder="Name"></input>
-                <p class="hide text-danger" id='gamenameError'>This field is required</p>
-              </div>
-              
-              <div class="mb-3">
-                <textarea style="height: 100px;" class="form-control" id="description" name="description" placeholder="Description"><?= $game->Description ?></textarea>
-                <p class="hide text-danger" id='descriptionError'>This field is required</p>
-              </div>
+            <h1>Edit Game</h1>
 
-              <div class="mb-3">
-                <input class="form-control" id="version" name="version" value="<?= $game->Version ?>" placeholder="Version"></input>
-                <p class="hide text-danger" id='versionError'>This field is required</p>
-              </div>    
+            <input type="hidden" id="gameId" name="gameId" value="<?= $game->GameId ?>"></input>
 
-              <div class="mb-3">
-                <input type="number" class="form-control" id="price" value="<?= $game->Price ?>" name="price" placeholder="Price"></input>
-                <p class="hide text-danger" id='priceError'>This field is required</p>
-              </div>  
-
-              <div class="mb-3">
-                <input type="number" class="form-control" id="sale" value="<?= $game->Sale ?>" name="sale" placeholder="Initial Sale"></input>
-                <p class="hide text-danger" id='saleError'>This field is required</p>
-              </div>      
-
-              <div class="mb-3">
-                <select class="form-select" aria-label="type" id="type" name="type">
-                  <option selected value='None' disabled>Type</option>
-                  <option value="Action">Action</option>
-                  <option value="Adventure">Adventure</option>
-                  <option value="Open World">Open World</option>
-                  <option value="Shooter">Shooter</option>
-                  <option value="Strategy">Strategy</option>
-                  <option value="RD2">RD2</option>
-                </select>
-                <p class="hide text-danger" id='typeError'>This field is required</p>
-              </div>
-              
-              <div class="mb-3">
-                <label for="releasedate" class="form-label">Release Date </label>
-                <input type="date" class="form-control " value="<?= $game->ReleaseDate ?>" id="releasedate" name="releasedate" placeholder="Release Date">
-                <p class="hide text-danger" id='releasedateError'></p>
-              </div>
-
-              <div class="mb-3">
-                <label for="gameimg" class="form-label">Game Image</label>
-                <input type="file" class="form-control" id="gameimg" name="gameimg" placeholder="Game Image"></input>
-                <p class="hide text-danger" id='gameimgError'>This field is required</p>
-              </div> 
-
-              <div class="d-flex justify-content-between">
-                <button type="submit" class="align-self-center submit">submit</button>
-              </div>
+            <div class="mb-3">
+              <input type="text" class="form-control" id="gamename" value="<?= $game->Name ?>" name="gamename" placeholder="Name"></input>
+              <p class="hide text-danger" id='gamenameError'>This field is required</p>
             </div>
-          </form>
-        </div>
+
+            <div class="mb-3">
+              <textarea style="height: 100px;" class="form-control" id="description" name="description" placeholder="Description"><?= $game->Description ?></textarea>
+              <p class="hide text-danger" id='descriptionError'>This field is required</p>
+            </div>
+
+            <div class="mb-3">
+              <input class="form-control" id="version" name="version" value="<?= $game->Version ?>" placeholder="Version"></input>
+              <p class="hide text-danger" id='versionError'>This field is required and must be positive</p>
+            </div>
+
+            <div class="mb-3">
+              <input type="number" class="form-control" id="price" value="<?= $game->Price ?>" name="price" placeholder="Price"></input>
+              <p class="hide text-danger" id='priceError'>This field is required and must be positive</p>
+
+            </div>
+
+            <div class="mb-3">
+              <input type="number" class="form-control" id="sale" value="<?= $game->Sale ?>" name="sale" placeholder="Initial Sale"></input>
+              <p class="hide text-danger" id='saleError'>This field is required from 0 to 100</p>
+
+            </div>
+
+            <div class="mb-3">
+              <select class="form-select" aria-label="type" id="type" name="type">
+                <option selected value='None' disabled>Type</option>
+                <option value="Action">Action</option>
+                <option value="Adventure">Adventure</option>
+                <option value="Open World">Open World</option>
+                <option value="Shooter">Shooter</option>
+                <option value="Strategy">Strategy</option>
+                <option value="RD2">RD2</option>
+              </select>
+              <p class="hide text-danger" id='typeError'>This field is required</p>
+            </div>
+
+            <div class="mb-3">
+              <label for="releasedate" class="form-label">Release Date </label>
+              <input type="date" class="form-control " value="<?= $game->ReleaseDate ?>" id="releasedate" name="releasedate" placeholder="Release Date">
+              <p class="hide text-danger" id='releasedateError'></p>
+            </div>
+
+            <div class="mb-3">
+              <label for="gameimg" class="form-label">Game Image</label>
+              <input type="file" class="form-control" id="gameimg" name="gameimg" placeholder="Game Image"></input>
+              <p class="hide text-danger" id='gameimgError'>This field is required</p>
+            </div>
+
+            <div class="d-flex justify-content-between">
+              <button type="submit" class="align-self-center submit">submit</button>
+            </div>
+          </div>
+        </form>
       </div>
     </div>
+  </div>
   </div>
 
 </body>
@@ -131,64 +133,60 @@
   gameimgError = document.getElementById("gameimgError")
 
   form.addEventListener("submit", (e) => {
-    if (!validate()) 
-    e.preventDefault();
-    else 
-    console.log("click");
+    if (!validate())
+      e.preventDefault();
+    else
+      console.log("click");
   });
 
   //Valiation
   function validate() {
     flag = true;
     //Landing page
-      if (gamename.value === "" || gamename.value === null) {
-        flag = false;
-        gamenameError.classList.remove("hide");
-      } 
-      else 
-        gamenameError.classList.add("hide");
+    if (gamename.value === "" || gamename.value === null) {
+      flag = false;
+      gamenameError.classList.remove("hide");
+    } else
+      gamenameError.classList.add("hide");
 
-      if (description.value === "" || description.value === null) {
-        flag = false;
-        descriptionError.classList.remove("hide");
-      } 
-      else 
-        descriptionError.classList.add("hide");
+    if (description.value === "" || description.value === null) {
+      flag = false;
+      descriptionError.classList.remove("hide");
+    } else
+      descriptionError.classList.add("hide");
 
-      if (type.value === "None" || type.value === null) {
-        flag = false;
-        typeError.classList.remove("hide");
-      } 
-      else 
-        typeError.classList.add("hide");
+    if (type.value === "None" || type.value === null) {
+      flag = false;
+      typeError.classList.remove("hide");
+    } else
+      typeError.classList.add("hide");
 
-      if (sale.value === "" || price.value === null) {
-        flag = false;
-        saleError.classList.remove("hide");
-      } 
-      else 
-        saleError.classList.add("hide");
+    if (sale.value === "" || price.value === null || sale.value < 0 || sale.value > 100) {
+      flag = false;
+      saleError.classList.remove("hide");
+    } else
+      saleError.classList.add("hide");
 
-      if (price.value === "" || price.value === null) {
-        flag = false;
-        priceError.classList.remove("hide");
-      } else priceError.classList.add("hide");
+    if (price.value === "" || price.value === null || price.value < 0) {
+      flag = false;
+      priceError.classList.remove("hide");
+    } else priceError.classList.add("hide");
 
-      if(version.value === "" || version.value === null) {
-        flag = false;
-        versionError.classList.remove("hide");
-      } else versionError.classList.add("hide");
+    if (version.value === "" || version.value === null || version.value < 0) {
+      flag = false;
+      versionError.classList.remove("hide");
+    } else versionError.classList.add("hide");
 
-      if(gameimg.value === "" || gameimg.value === null) {
-        flag = false;
-        gameimgError.classList.remove("hide");
-      } else gameimgError.classList.add("hide");
+    if (gameimg.value === "" || gameimg.value === null) {
+      flag = false;
+      gameimgError.classList.remove("hide");
+    } else gameimgError.classList.add("hide");
 
-      if (releasedate.value === "" || releasedate.value === null) {
-        flag = false;
-        releasedateError.innerHTML = "This field is required";
-        releasedateError.classList.remove("hide");
-      } else releasedateError.classList.add("hide");
+    if (releasedate.value === "" || releasedate.value === null) {
+      flag = false;
+      releasedateError.innerHTML = "This field is required";
+      releasedateError.classList.remove("hide");
+    } else releasedateError.classList.add("hide");
 
     return flag;
   }

@@ -6,6 +6,9 @@
         header("Location: ../views/Not_Found.php");
     }
     //var_dump($heighest_game->GameId);
+    require "../Models/Account.php";
+    //var_dump($games_seller);
+    session_start();
 ?>
 <!DOCTYPE html>
 <html lang="en">
