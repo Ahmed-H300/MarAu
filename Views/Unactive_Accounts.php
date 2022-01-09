@@ -5,6 +5,7 @@ if (isset($_SESSION['Account']) && unserialize($_SESSION['Account'])->AccountTyp
     header("Location: ../views/Account");
 }
 $accounts = unserialize($_SESSION['accounts']);
+
 ?>
 <!DOCTYPE html>
 
@@ -182,13 +183,16 @@ $accounts = unserialize($_SESSION['accounts']);
             </thead>
             <tbody>
                 <?php
+
                 foreach ($accounts as $account) {
+                    if (!isset($accounts[0]->AccountId))
+                        break;
                     echo "<tr>
                         <td>$account->AccountId</td>
                         <td>$account->AccountType</td>
                         <td>$account->Username</td>
                         <td>$account->EmailAddress</td>
-                        <td><a class='btn btn-dark btn-sm' href='../Controller/activate_account.php?id=$account->AccountId&modId=".unserialize($_SESSION['Account'])->ID."'>Approve</a></td>
+                        <td><a class='btn btn-dark btn-sm' href='../Controller/activate_account.php?id=$account->AccountId&modId=" . unserialize($_SESSION['Account'])->ID . "'>Approve</a></td>
                     </tr>";
                 }
                 ?>
