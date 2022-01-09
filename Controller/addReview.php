@@ -6,7 +6,7 @@ if (!empty($_POST)) {
 
     $GameId = filter_var($_POST['GameId'], FILTER_SANITIZE_NUMBER_INT); 
     $Text = filter_var($_POST['Text'], FILTER_UNSAFE_RAW); 
-    $Rating = filter_var($_POST['Rating'], FILTER_SANITIZE_NUMBER_FLOAT); 
+    $Rating = filter_var($_POST['Rating'], FILTER_UNSAFE_RAW); 
     $BuyerId = $account->ID;
     require "../connection.php";
     $insertQuery = $connection->prepare("CALL Add_REview (?,?,?,?)"); 

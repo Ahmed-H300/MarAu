@@ -45,9 +45,9 @@ include "../Controller/Select_Auctions.php";
                     <input type='text' class='form-controls' style='display:none;' name='BuyerId' value='" . $account->ID . "' ></input>
 
                     <li class='tag__item'><i class='fas fa-clock mr-2'></i>Highest: " . $Auctions[$x]->HighestBidAmount . "</li>";
-                    if(!empty($Auctions[$x]->HighestBidBuyerUserName))
+                if (!empty($Auctions[$x]->HighestBidBuyerUserName))
                     echo "<li class='tag__item'><i class='fas fa-clock mr-2'></i>Highest Bidder is " . $Auctions[$x]->HighestBidBuyerUserName . "</li>";
-                    if ($Auctions[$x]->Status == 1)
+                if ($Auctions[$x]->Status == 1)
                     echo "<li class='tag__item'><i class='fas fa-clock mr-2'></i>Time Left: " . intval(((strtotime($Auctions[$x]->EndDate) - strtotime('now')) / 60)) . "  Minutes</li>";
                 if ($Auctions[$x]->Status == 1 && $account->AccountType == "Buyer" && $account->ID != $Auctions[$x]->HighestBidBuyerId)
                     echo "<li class='tag__item'><input type='text' name='Amount' class='form-controls'  placeholder='Amount' ></input></li>
@@ -89,10 +89,10 @@ include "../Controller/Select_Auctions.php";
                     <input type='text' class='form-controls' style='display:none;' name='BuyerId' value='" . $account->ID . "' ></input>
 
                     <li class='tag__item'><i class='fas fa-clock mr-2'></i>Highest: " . $Auctions[$x + 1]->HighestBidAmount . "</li>";
-                    if(!empty($Auctions[$x+1]->HighestBidBuyerUserName))
-                    echo "<li class='tag__item'><i class='fas fa-clock mr-2'></i>Highest Bidder is " . $Auctions[$x+1]->HighestBidBuyerUserName . "</li>";
-                    if ($Auctions[$x+1]->Status == 1)
-                    echo "<li class='tag__item'><i class='fas fa-clock mr-2'></i>Time Left: " . intval(((strtotime($Auctions[$x+1]->EndDate) - strtotime('now')) / 60)) . "  Minutes</li>";
+                    if (!empty($Auctions[$x + 1]->HighestBidBuyerUserName))
+                        echo "<li class='tag__item'><i class='fas fa-clock mr-2'></i>Highest Bidder is " . $Auctions[$x + 1]->HighestBidBuyerUserName . "</li>";
+                    if ($Auctions[$x + 1]->Status == 1)
+                        echo "<li class='tag__item'><i class='fas fa-clock mr-2'></i>Time Left: " . intval(((strtotime($Auctions[$x + 1]->EndDate) - strtotime('now')) / 60)) . "  Minutes</li>";
                     if ($Auctions[$x + 1]->Status == 1 && $account->AccountType == "Buyer" && $account->ID != $Auctions[$x + 1]->HighestBidBuyerId)
                         echo "<li class='tag__item'><input type='text' name='Amount' class='form-controls'  placeholder='Amount' ></input></li>
                     <li class='tag__item play red'>
