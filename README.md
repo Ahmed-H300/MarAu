@@ -46,9 +46,9 @@ The website also allows Administers to view statistics and reports for the perfo
 <table >
   <tr>
         <td align="center"><a href="https://github.com/Ahmed-H300"><img src="https://avatars.githubusercontent.com/u/67925988?v=4" width="150px;" alt=""/><br /><sub><b>Ahmed Hany</b></sub></a><br /></td>
-   <td align="center"><a href="https://github.com/MohamedKamalOthman"><img src="https://avatars.githubusercontent.com/u/67925988?v=4" width="150px;" alt=""/><br /><sub><b>Mohamed Kamal</b></sub></a><br /></td>
-   <td align="center"><a href="https://github.com/Mahmedamer"><img src="https://avatars.githubusercontent.com/u/67925988?v=4" width="150px;" alt=""/><br /><sub><b>Mohamed Kotb</b></sub></a><br /></td>
-   <td align="center"><a href="https://github.com/MohammedAbdulhady00"><img src="https://avatars.githubusercontent.com/u/67925988?v=4" width="150px;" alt=""/><br /><sub><b>Mohammed Abdulhady</b></sub></a><br /></td>
+   <td align="center"><a href="https://github.com/MohamedKamalOthman"><img src="https://avatars.githubusercontent.com/u/76039756?v=4" width="150px;" alt=""/><br /><sub><b>Mohamed Kamal</b></sub></a><br /></td>
+   <td align="center"><a href="https://github.com/Mahmedamer"><img src="https://avatars.githubusercontent.com/u/67114727?v=4" width="150px;" alt=""/><br /><sub><b>Mohamed Kotb</b></sub></a><br /></td>
+   <td align="center"><a href="https://github.com/MohammedAbdulhady00"><img src="https://avatars.githubusercontent.com/u/75921148?v=4" width="150px;" alt=""/><br /><sub><b>Mohammed Abdulhady</b></sub></a><br /></td>
   </tr>
 </table>
 
